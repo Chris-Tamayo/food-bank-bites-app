@@ -1,0 +1,280 @@
+
+import { FoodItem } from "@/hooks/useBasket";
+
+// Mock food items that are typically available at food banks
+export const foodCategories = [
+  "Proteins",
+  "Grains",
+  "Canned Goods",
+  "Vegetables",
+  "Fruits",
+  "Dairy",
+  "Baking & Cooking",
+  "Condiments",
+];
+
+export const foodItems: FoodItem[] = [
+  // Proteins
+  {
+    id: "1",
+    name: "Canned Tuna",
+    category: "Proteins",
+    quantity: 1,
+    unit: "can",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "2",
+    name: "Canned Chicken",
+    category: "Proteins",
+    quantity: 1,
+    unit: "can",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "3",
+    name: "Eggs",
+    category: "Proteins",
+    quantity: 1,
+    unit: "dozen",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "4",
+    name: "Peanut Butter",
+    category: "Proteins",
+    quantity: 1,
+    unit: "jar",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "5",
+    name: "Dried Beans",
+    category: "Proteins",
+    quantity: 1,
+    unit: "lb",
+    image: "/placeholder.svg",
+  },
+  
+  // Grains
+  {
+    id: "6",
+    name: "Rice",
+    category: "Grains",
+    quantity: 1,
+    unit: "lb",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "7",
+    name: "Pasta",
+    category: "Grains",
+    quantity: 1,
+    unit: "box",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "8",
+    name: "Cereal",
+    category: "Grains",
+    quantity: 1,
+    unit: "box",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "9",
+    name: "Bread",
+    category: "Grains",
+    quantity: 1,
+    unit: "loaf",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "10",
+    name: "Oatmeal",
+    category: "Grains",
+    quantity: 1,
+    unit: "container",
+    image: "/placeholder.svg",
+  },
+  
+  // Canned Goods
+  {
+    id: "11",
+    name: "Canned Soup",
+    category: "Canned Goods",
+    quantity: 1,
+    unit: "can",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "12",
+    name: "Canned Beans",
+    category: "Canned Goods",
+    quantity: 1,
+    unit: "can",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "13",
+    name: "Canned Vegetables",
+    category: "Canned Goods",
+    quantity: 1,
+    unit: "can",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "14",
+    name: "Canned Fruit",
+    category: "Canned Goods",
+    quantity: 1,
+    unit: "can",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "15",
+    name: "Canned Tomatoes",
+    category: "Canned Goods",
+    quantity: 1,
+    unit: "can",
+    image: "/placeholder.svg",
+  },
+  
+  // Vegetables
+  {
+    id: "16",
+    name: "Potatoes",
+    category: "Vegetables",
+    quantity: 1,
+    unit: "lb",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "17",
+    name: "Onions",
+    category: "Vegetables",
+    quantity: 1,
+    unit: "lb",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "18",
+    name: "Carrots",
+    category: "Vegetables",
+    quantity: 1,
+    unit: "lb",
+    image: "/placeholder.svg",
+  },
+  
+  // Fruits
+  {
+    id: "19",
+    name: "Apples",
+    category: "Fruits",
+    quantity: 1,
+    unit: "lb",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "20",
+    name: "Bananas",
+    category: "Fruits",
+    quantity: 1,
+    unit: "bunch",
+    image: "/placeholder.svg",
+  },
+  
+  // Dairy
+  {
+    id: "21",
+    name: "Milk",
+    category: "Dairy",
+    quantity: 1,
+    unit: "gallon",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "22",
+    name: "Cheese",
+    category: "Dairy",
+    quantity: 1,
+    unit: "package",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "23",
+    name: "Butter",
+    category: "Dairy",
+    quantity: 1,
+    unit: "stick",
+    image: "/placeholder.svg",
+  },
+  
+  // Baking & Cooking
+  {
+    id: "24",
+    name: "Flour",
+    category: "Baking & Cooking",
+    quantity: 1,
+    unit: "lb",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "25",
+    name: "Sugar",
+    category: "Baking & Cooking",
+    quantity: 1,
+    unit: "lb",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "26",
+    name: "Cooking Oil",
+    category: "Baking & Cooking",
+    quantity: 1,
+    unit: "bottle",
+    image: "/placeholder.svg",
+  },
+  
+  // Condiments
+  {
+    id: "27",
+    name: "Ketchup",
+    category: "Condiments",
+    quantity: 1,
+    unit: "bottle",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "28",
+    name: "Mustard",
+    category: "Condiments",
+    quantity: 1,
+    unit: "bottle",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "29",
+    name: "Mayonnaise",
+    category: "Condiments",
+    quantity: 1,
+    unit: "jar",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "30",
+    name: "Salt",
+    category: "Condiments",
+    quantity: 1,
+    unit: "container",
+    image: "/placeholder.svg",
+  },
+  {
+    id: "31",
+    name: "Pepper",
+    category: "Condiments",
+    quantity: 1,
+    unit: "container",
+    image: "/placeholder.svg",
+  },
+];
