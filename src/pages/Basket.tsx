@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Layout from '@/components/layout/Layout';
 import { useBasket } from '@/hooks/useBasket';
@@ -32,36 +31,34 @@ const Basket: React.FC = () => {
       </div>
 
       {basketItems.length > 0 ? (
-        <>
+        <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-lg shadow-md p-4 mb-6">
             {basketItems.map(item => (
               <div 
                 key={item.id} 
-                className="py-4 border-b border-gray-100 last:border-0 flex flex-wrap md:flex-nowrap items-center"
+                className="py-4 border-b border-gray-100 last:border-0 flex items-center justify-between"
               >
-                <div className="flex items-center w-full md:w-auto">
-                  <div className="h-16 w-16 bg-food-beige rounded-md flex items-center justify-center mr-4">
+                <div className="flex items-center space-x-4 flex-grow">
+                  <div className="h-16 w-16 bg-food-beige rounded-md flex items-center justify-center">
                     <img 
                       src={item.image} 
                       alt={item.name} 
                       className="h-10 w-10 object-contain" 
                     />
                   </div>
-                  <div className="flex-grow md:flex-grow-0">
+                  <div>
                     <h3 className="font-medium text-food-dark">{item.name}</h3>
                     <p className="text-sm text-gray-500">{item.unit}</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center mt-3 md:mt-0 ml-auto">
-                  <button 
-                    onClick={() => handleRemoveItem(item.id, item.name)}
-                    className="p-2 text-red-500 hover:text-red-700 rounded-full hover:bg-red-50"
-                    aria-label="Remove item"
-                  >
-                    <Trash2 className="h-5 w-5" />
-                  </button>
-                </div>
+                <button 
+                  onClick={() => handleRemoveItem(item.id, item.name)}
+                  className="p-2 text-red-500 hover:text-red-700 rounded-full hover:bg-red-50"
+                  aria-label="Remove item"
+                >
+                  <Trash2 className="h-5 w-5" />
+                </button>
               </div>
             ))}
             
@@ -82,7 +79,7 @@ const Basket: React.FC = () => {
               </Link>
             </div>
           </div>
-        </>
+        </div>
       ) : (
         <div className="text-center p-12 bg-white rounded-lg shadow-sm">
           <div className="mb-4 text-food-orange">
