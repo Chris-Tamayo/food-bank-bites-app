@@ -23,6 +23,9 @@ const Navbar: React.FC = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <Link to="/about" className="text-food-dark hover:text-food-orange transition-colors">
+              About
+            </Link>
             <Link to="/ingredients" className="text-food-dark hover:text-food-orange transition-colors">
               Select Foods
             </Link>
@@ -36,9 +39,6 @@ const Navbar: React.FC = () => {
                   {favoriteRecipes.length}
                 </span>
               )}
-            </Link>
-            <Link to="/about" className="text-food-dark hover:text-food-orange transition-colors">
-              About
             </Link>
             <Link to="/basket" className="relative">
               <ShoppingBasket className="h-6 w-6 text-food-orange" />
