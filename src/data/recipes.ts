@@ -1,4 +1,3 @@
-
 export interface Recipe {
   id: string;
   title: string;
@@ -14,6 +13,7 @@ export interface Recipe {
   tags: string[];
   image: string;
   requiredFoodIds: string[];
+  matchPercentage?: number;
 }
 
 export const recipes: Recipe[] = [
@@ -164,15 +164,15 @@ export const findMatchingRecipes = (basketItemIds: string[]): Recipe[] => {
         basketItemIds.includes(id)
       );
       
-      const matchPercentage = matchedIngredients.length / requiredIngredients.length;
+      const matchPercentage = Math.round((matchedIngredients.length / requiredIngredients.length) * 100);
       
+      // Create a new recipe object with the matchPercentage property
       return {
-        recipe,
+        ...recipe,
         matchPercentage,
         missingIngredients: requiredIngredients.filter(id => !basketItemIds.includes(id))
       };
     })
-    .filter(result => result.matchPercentage >= 0.6) // At least 60% of ingredients match
-    .sort((a, b) => b.matchPercentage - a.matchPercentage) // Sort by match percentage
-    .map(result => result.recipe);
+    .filter(result => result.matchPercentage >= 60) // At least 60% of ingredients match
+    .sort((a, b) => b.matchPercentage - a.matchPercentage); // Sort by match percentage
 };
