@@ -19,6 +19,7 @@ interface BasketContextType {
   clearBasket: () => void;
   addToFavorites: (recipe: Recipe) => void;
   removeFromFavorites: (recipeId: string) => void;
+  isInFavorites: (recipeId: string) => boolean;
 }
 
 const BasketContext = createContext<BasketContextType | undefined>(undefined);
@@ -85,6 +86,10 @@ export const BasketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     );
   };
 
+  const isInFavorites = (recipeId: string) => {
+    return favoriteRecipes.some(recipe => recipe.id === recipeId);
+  };
+
   return (
     <BasketContext.Provider value={{ 
       basketItems, 
@@ -93,7 +98,8 @@ export const BasketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       removeFromBasket, 
       clearBasket,
       addToFavorites,
-      removeFromFavorites
+      removeFromFavorites,
+      isInFavorites
     }}>
       {children}
     </BasketContext.Provider>

@@ -4,16 +4,31 @@ import Layout from '@/components/layout/Layout';
 import { useBasket } from '@/hooks/useBasket';
 import { findMatchingRecipes } from '@/data/recipes';
 import { Button } from '@/components/ui/button';
-import { Clock, Users, ArrowRight, Percent } from 'lucide-react';
+import { Clock, Users, ArrowRight, Percent, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { toast } from 'sonner';
 
 const Recipes: React.FC = () => {
-  const { basketItems } = useBasket();
+  const { basketItems, favoriteRecipes, addToFavorites, removeFromFavorites } = useBasket();
   
   const matchingRecipes = useMemo(() => {
     const basketItemIds = basketItems.map(item => item.id);
     return findMatchingRecipes(basketItemIds);
   }, [basketItems]);
+
+  const isRecipeFavorite = (recipeId: string) => {
+    return favoriteRecipes.some(recipe => recipe.id === recipeId);
+  };
+
+  const handleToggleFavorite = (recipe: any) => {
+    if (isRecipeFavorite(recipe.id)) {
+      removeFromFavorites(recipe.id);
+      toast.success(`Removed "${recipe.title}" from favorites`);
+    } else {
+      addToFavorites(recipe);
+      toast.success(`Added "${recipe.title}" to favorites`);
+    }
+  };
 
   return (
     <Layout>
@@ -30,6 +45,16 @@ const Recipes: React.FC = () => {
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           {matchingRecipes.map(recipe => (
             <div key={recipe.id} className="recipe-card relative">
+              {/* Favorite button */}
+              <button 
+                onClick={() => handleToggleFavorite(recipe)}
+                className="absolute top-4 left-4 p-1 rounded-full bg-white/80 hover:bg-white transition-colors z-10"
+              >
+                <Star 
+                  className={`h-5 w-5 ${isRecipeFavorite(recipe.id) ? 'text-yellow-500 fill-yellow-500' : 'text-gray-400'}`} 
+                />
+              </button>
+              
               {/* Match percentage badge */}
               <div className="absolute top-4 right-4 bg-food-orange text-white rounded-full px-2 py-1 text-sm font-medium flex items-center">
                 <Percent className="mr-1 h-3 w-3" />
@@ -122,4 +147,3 @@ const Recipes: React.FC = () => {
 };
 
 export default Recipes;
-

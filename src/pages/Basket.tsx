@@ -53,9 +53,9 @@ const Basket: React.FC = () => {
                 </Button>
               </div>
               
-              <ul className="space-y-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {basketItems.map((item) => (
-                  <li 
+                  <div 
                     key={item.id}
                     className="flex items-center justify-between p-3 border border-gray-100 rounded-md hover:bg-gray-50"
                   >
@@ -76,24 +76,27 @@ const Basket: React.FC = () => {
                     >
                       <Trash2 className="h-5 w-5" />
                     </button>
-                  </li>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
             
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-              <h2 className="text-xl font-bold text-food-dark mb-4">Recipe Matches</h2>
-              {matchingRecipes.length > 0 ? (
-                <>
-                  <p className="text-gray-600 mb-4">
-                    Based on your basket, we found {matchingRecipes.length} recipe{matchingRecipes.length === 1 ? '' : 's'} that you can make.
-                  </p>
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-xl font-bold text-food-dark">Recipe Matches</h2>
+                {matchingRecipes.length > 0 && (
                   <Link to="/recipes">
-                    <Button className="w-full bg-food-orange hover:bg-food-orange/90">
+                    <Button className="bg-food-orange hover:bg-food-orange/90">
                       View Matching Recipes
                     </Button>
                   </Link>
-                </>
+                )}
+              </div>
+              
+              {matchingRecipes.length > 0 ? (
+                <p className="text-gray-600">
+                  Based on your basket, we found {matchingRecipes.length} recipe{matchingRecipes.length === 1 ? '' : 's'} that you can make.
+                </p>
               ) : (
                 <p className="text-gray-600">
                   No recipes match your current basket items. Try adding more items to find matching recipes.
