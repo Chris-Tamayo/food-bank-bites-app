@@ -17,7 +17,7 @@ const Recipes: React.FC = () => {
 
   return (
     <Layout>
-      <div className="mb-8">
+      <div className="mb-8 max-w-4xl mx-auto text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-food-dark mb-2">
           Your <span className="text-food-orange">Recipe Matches</span>
         </h1>
@@ -27,7 +27,7 @@ const Recipes: React.FC = () => {
       </div>
 
       {matchingRecipes.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           {matchingRecipes.map(recipe => (
             <div key={recipe.id} className="recipe-card relative">
               {/* Match percentage badge */}
@@ -81,7 +81,7 @@ const Recipes: React.FC = () => {
           ))}
         </div>
       ) : (
-        <div className="text-center p-12 bg-white rounded-lg shadow-sm">
+        <div className="max-w-4xl mx-auto text-center p-12 bg-white rounded-lg shadow-sm">
           <div className="mb-4 text-food-orange">
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -122,3 +122,4 @@ const Recipes: React.FC = () => {
 };
 
 export default Recipes;
+

@@ -52,7 +52,7 @@ const Index: React.FC = () => {
 
   return (
     <Layout>
-      <div className="mb-8">
+      <div className="mb-8 max-w-4xl mx-auto text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-food-dark mb-2">
           Select Your <span className="text-food-orange">Ingredients</span>
         </h1>
@@ -63,7 +63,7 @@ const Index: React.FC = () => {
       </div>
 
       {/* Search Bar */}
-      <div className="mb-6 relative">
+      <div className="mb-6 relative max-w-4xl mx-auto">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
           <input
@@ -76,8 +76,8 @@ const Index: React.FC = () => {
         </div>
       </div>
 
-      {/* Categories Navigation - Vertical on mobile, horizontal on desktop */}
-      <div className="mb-8">
+      {/* Categories Navigation */}
+      <div className="mb-8 max-w-4xl mx-auto">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap gap-2">
           {allCategories.map(category => (
             <button
@@ -95,7 +95,7 @@ const Index: React.FC = () => {
       </div>
 
       {/* Food Items Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredItems.length > 0 ? (
           filteredItems.map(item => (
             <div key={item.id} className="food-card">
@@ -141,3 +141,4 @@ const Index: React.FC = () => {
 };
 
 export default Index;
+
