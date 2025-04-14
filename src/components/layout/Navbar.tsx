@@ -1,12 +1,13 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingBasket } from 'lucide-react';
 import { useBasket } from '@/hooks/useBasket';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { basketItems } = useBasket();
+  const location = useLocation();
   
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -22,7 +23,7 @@ const Navbar: React.FC = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-food-dark hover:text-food-orange transition-colors">
+            <Link to="/ingredients" className="text-food-dark hover:text-food-orange transition-colors">
               Select Foods
             </Link>
             <Link to="/recipes" className="text-food-dark hover:text-food-orange transition-colors">
@@ -65,7 +66,7 @@ const Navbar: React.FC = () => {
           <div className="md:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-4">
               <Link 
-                to="/" 
+                to="/ingredients" 
                 className="text-food-dark hover:text-food-orange transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >

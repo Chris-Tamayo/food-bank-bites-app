@@ -4,11 +4,12 @@ import Layout from '@/components/layout/Layout';
 import { foodCategories, foodItems } from '@/data/foodItems';
 import { useBasket, FoodItem } from '@/hooks/useBasket';
 import { Button } from '@/components/ui/button';
-import { Plus, Check, Search } from 'lucide-react';
+import { Plus, Check, Search, X } from 'lucide-react';
 import { toast } from 'sonner';
+import FloatingBasketButton from '@/components/FloatingBasketButton';
 
 const Index: React.FC = () => {
-  const { basketItems, addToBasket } = useBasket();
+  const { basketItems, addToBasket, removeFromBasket } = useBasket();
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [searchTerm, setSearchTerm] = useState<string>("");
   
@@ -37,11 +38,16 @@ const Index: React.FC = () => {
     return basketItems.some(item => item.id === id);
   };
 
-  const handleAddItem = (item: FoodItem) => {
-    addToBasket({ ...item });
-    toast.success(`Added ${item.name} to your basket`, {
-      description: "Go to your basket to view all items."
-    });
+  const handleToggleItem = (item: FoodItem) => {
+    if (isItemInBasket(item.id)) {
+      removeFromBasket(item.id);
+      toast.info(`Removed ${item.name} from your basket`);
+    } else {
+      addToBasket({ ...item });
+      toast.success(`Added ${item.name} to your basket`, {
+        description: "Go to your basket to view all items."
+      });
+    }
   };
 
   return (
@@ -93,7 +99,7 @@ const Index: React.FC = () => {
         {filteredItems.length > 0 ? (
           filteredItems.map(item => (
             <div key={item.id} className="food-card">
-              <div className="flex items-center justify-center h-40 sm:h-32 bg-food-beige rounded-md mb-3">
+              <div className="flex items-center justify-center h-36 sm:h-32 bg-food-beige rounded-md mb-3">
                 <img 
                   src={item.image} 
                   alt={item.name} 
@@ -104,15 +110,14 @@ const Index: React.FC = () => {
               <p className="text-sm text-gray-500 mb-3">{item.unit}</p>
               
               <Button
-                onClick={() => handleAddItem(item)}
+                onClick={() => handleToggleItem(item)}
                 className={isItemInBasket(item.id) 
                   ? "w-full bg-food-green hover:bg-food-green/90" 
                   : "w-full bg-food-orange hover:bg-food-orange/90"}
-                disabled={isItemInBasket(item.id)}
               >
                 {isItemInBasket(item.id) ? (
                   <>
-                    <Check className="mr-1 h-4 w-4" /> Added
+                    <X className="mr-1 h-4 w-4" /> Remove
                   </>
                 ) : (
                   <>
@@ -128,6 +133,9 @@ const Index: React.FC = () => {
           </div>
         )}
       </div>
+      
+      {/* Floating Basket Button */}
+      <FloatingBasketButton />
     </Layout>
   );
 };

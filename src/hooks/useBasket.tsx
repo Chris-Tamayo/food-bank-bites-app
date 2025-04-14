@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export interface FoodItem {
@@ -14,7 +13,6 @@ interface BasketContextType {
   basketItems: FoodItem[];
   addToBasket: (item: FoodItem) => void;
   removeFromBasket: (itemId: string) => void;
-  updateQuantity: (itemId: string, quantity: number) => void;
   clearBasket: () => void;
 }
 
@@ -35,27 +33,17 @@ export const BasketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       const existingItemIndex = prevItems.findIndex(i => i.id === item.id);
       
       if (existingItemIndex >= 0) {
-        // Item already exists, update quantity
-        const updatedItems = [...prevItems];
-        updatedItems[existingItemIndex].quantity += item.quantity;
-        return updatedItems;
+        // Item already exists, but we'll keep it simple and just return the existing array
+        return prevItems;
       } else {
         // Item doesn't exist, add it
-        return [...prevItems, item];
+        return [...prevItems, { ...item, quantity: 1 }];
       }
     });
   };
 
   const removeFromBasket = (itemId: string) => {
     setBasketItems(prevItems => prevItems.filter(item => item.id !== itemId));
-  };
-
-  const updateQuantity = (itemId: string, quantity: number) => {
-    setBasketItems(prevItems => 
-      prevItems.map(item => 
-        item.id === itemId ? { ...item, quantity } : item
-      )
-    );
   };
 
   const clearBasket = () => {
@@ -67,7 +55,6 @@ export const BasketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       basketItems, 
       addToBasket, 
       removeFromBasket, 
-      updateQuantity,
       clearBasket 
     }}>
       {children}

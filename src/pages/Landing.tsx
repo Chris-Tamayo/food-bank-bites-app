@@ -1,11 +1,15 @@
+
 import React from 'react';
 import { ArrowRight, Carrot, UtensilsCrossed, ChefHat } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 const Landing: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <Navbar />
       {/* Hero Section */}
       <section className="bg-food-beige py-20 px-4 flex-grow flex items-center">
         <div className="container mx-auto max-w-6xl">
@@ -83,16 +87,7 @@ const Landing: React.FC = () => {
         </div>
       </section>
       
-      {/* Footer with credits - keep it simple */}
-      <footer className="bg-food-dark text-white py-8 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center">
-            <p className="text-sm text-gray-400">
-              Food Bank Bites - Helping communities eat well with what they have.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

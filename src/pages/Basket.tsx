@@ -3,21 +3,16 @@ import React from 'react';
 import Layout from '@/components/layout/Layout';
 import { useBasket } from '@/hooks/useBasket';
 import { Button } from '@/components/ui/button';
-import { Trash2, Plus, Minus, ChefHat } from 'lucide-react';
+import { Trash2, ChefHat } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 
 const Basket: React.FC = () => {
-  const { basketItems, removeFromBasket, updateQuantity, clearBasket } = useBasket();
+  const { basketItems, removeFromBasket, clearBasket } = useBasket();
   
   const handleRemoveItem = (itemId: string, itemName: string) => {
     removeFromBasket(itemId);
     toast.success(`Removed ${itemName} from your basket`);
-  };
-  
-  const handleQuantityChange = (itemId: string, currentQuantity: number, change: number) => {
-    const newQuantity = Math.max(1, currentQuantity + change);
-    updateQuantity(itemId, newQuantity);
   };
   
   const handleClearBasket = () => {
@@ -32,7 +27,7 @@ const Basket: React.FC = () => {
           Your <span className="text-food-orange">Basket</span>
         </h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Review and adjust the items in your basket before generating recipes.
+          Review the items in your basket before generating recipes.
         </p>
       </div>
 
@@ -59,23 +54,6 @@ const Basket: React.FC = () => {
                 </div>
                 
                 <div className="flex items-center mt-3 md:mt-0 ml-auto">
-                  <div className="flex items-center mr-6">
-                    <button 
-                      onClick={() => handleQuantityChange(item.id, item.quantity, -1)}
-                      className="p-1 rounded-full bg-gray-100 hover:bg-gray-200"
-                      disabled={item.quantity <= 1}
-                    >
-                      <Minus className="h-4 w-4 text-gray-600" />
-                    </button>
-                    <span className="mx-3 min-w-[2rem] text-center">{item.quantity}</span>
-                    <button 
-                      onClick={() => handleQuantityChange(item.id, item.quantity, 1)}
-                      className="p-1 rounded-full bg-gray-100 hover:bg-gray-200"
-                    >
-                      <Plus className="h-4 w-4 text-gray-600" />
-                    </button>
-                  </div>
-                  
                   <button 
                     onClick={() => handleRemoveItem(item.id, item.name)}
                     className="p-2 text-red-500 hover:text-red-700 rounded-full hover:bg-red-50"
