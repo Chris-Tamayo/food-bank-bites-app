@@ -4,7 +4,7 @@ import Layout from '@/components/layout/Layout';
 import { useBasket } from '@/hooks/useBasket';
 import { findMatchingRecipes } from '@/data/recipes';
 import { Button } from '@/components/ui/button';
-import { Clock, Users, ArrowRight } from 'lucide-react';
+import { Clock, Users, ArrowRight, Percent } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Recipes: React.FC = () => {
@@ -29,7 +29,13 @@ const Recipes: React.FC = () => {
       {matchingRecipes.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {matchingRecipes.map(recipe => (
-            <div key={recipe.id} className="recipe-card">
+            <div key={recipe.id} className="recipe-card relative">
+              {/* Match percentage badge */}
+              <div className="absolute top-4 right-4 bg-food-orange text-white rounded-full px-2 py-1 text-sm font-medium flex items-center">
+                <Percent className="mr-1 h-3 w-3" />
+                {recipe.matchPercentage}% Match
+              </div>
+              
               <div className="h-48 bg-food-beige rounded-md mb-4 overflow-hidden">
                 <img 
                   src={recipe.image} 
@@ -97,16 +103,18 @@ const Recipes: React.FC = () => {
           <p className="text-gray-600 mb-6">
             Try adding more items to your basket to find recipes you can make.
           </p>
-          <Link to="/">
-            <Button className="bg-food-orange hover:bg-food-orange/90 mr-4">
-              Add More Items
-            </Button>
-          </Link>
-          <Link to="/basket">
-            <Button variant="outline">
-              View Your Basket
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link to="/ingredients" className="w-full sm:w-auto">
+              <Button className="bg-food-orange hover:bg-food-orange/90 w-full">
+                Add More Items
+              </Button>
+            </Link>
+            <Link to="/basket" className="w-full sm:w-auto">
+              <Button variant="outline" className="w-full">
+                View Your Basket
+              </Button>
+            </Link>
+          </div>
         </div>
       )}
     </Layout>

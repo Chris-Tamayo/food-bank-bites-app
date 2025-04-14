@@ -5,7 +5,6 @@ import { useBasket } from '@/hooks/useBasket';
 import { Button } from '@/components/ui/button';
 import { Trash2, Plus, Minus, ChefHat } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { foodItems } from '@/data/foodItems';
 import { toast } from 'sonner';
 
 const Basket: React.FC = () => {
@@ -43,9 +42,9 @@ const Basket: React.FC = () => {
             {basketItems.map(item => (
               <div 
                 key={item.id} 
-                className="py-4 border-b border-gray-100 last:border-0 flex items-center justify-between"
+                className="py-4 border-b border-gray-100 last:border-0 flex flex-wrap md:flex-nowrap items-center"
               >
-                <div className="flex items-center">
+                <div className="flex items-center w-full md:w-auto">
                   <div className="h-16 w-16 bg-food-beige rounded-md flex items-center justify-center mr-4">
                     <img 
                       src={item.image} 
@@ -53,13 +52,13 @@ const Basket: React.FC = () => {
                       className="h-10 w-10 object-contain" 
                     />
                   </div>
-                  <div>
+                  <div className="flex-grow md:flex-grow-0">
                     <h3 className="font-medium text-food-dark">{item.name}</h3>
                     <p className="text-sm text-gray-500">{item.unit}</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center">
+                <div className="flex items-center mt-3 md:mt-0 ml-auto">
                   <div className="flex items-center mr-6">
                     <button 
                       onClick={() => handleQuantityChange(item.id, item.quantity, -1)}
@@ -88,17 +87,17 @@ const Basket: React.FC = () => {
               </div>
             ))}
             
-            <div className="flex justify-between mt-6">
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-4 mt-6">
               <Button
                 variant="outline"
                 onClick={handleClearBasket}
-                className="text-gray-600"
+                className="text-gray-600 w-full sm:w-auto"
               >
                 Clear Basket
               </Button>
               
-              <Link to="/recipes">
-                <Button className="bg-food-orange hover:bg-food-orange/90">
+              <Link to="/recipes" className="w-full sm:w-auto">
+                <Button className="bg-food-orange hover:bg-food-orange/90 w-full">
                   <ChefHat className="mr-2 h-5 w-5" />
                   Find Recipes
                 </Button>
@@ -131,8 +130,8 @@ const Basket: React.FC = () => {
           <p className="text-gray-600 mb-6">
             Go back to the main page to add food items to your basket.
           </p>
-          <Link to="/">
-            <Button className="bg-food-orange hover:bg-food-orange/90">
+          <Link to="/ingredients" className="block">
+            <Button className="bg-food-orange hover:bg-food-orange/90 w-full sm:w-auto">
               Browse Food Items
             </Button>
           </Link>

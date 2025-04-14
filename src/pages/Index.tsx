@@ -1,17 +1,37 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Layout from '@/components/layout/Layout';
 import { foodCategories, foodItems } from '@/data/foodItems';
 import { useBasket, FoodItem } from '@/hooks/useBasket';
 import { Button } from '@/components/ui/button';
-import { Plus, Check } from 'lucide-react';
+import { Plus, Check, Search } from 'lucide-react';
 import { toast } from 'sonner';
 
 const Index: React.FC = () => {
   const { basketItems, addToBasket } = useBasket();
-  const [activeCategory, setActiveCategory] = useState<string>(foodCategories[0]);
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  
+  // Add "All" to the categories
+  const allCategories = ["All", ...foodCategories];
 
-  const filteredItems = foodItems.filter(item => item.category === activeCategory);
+  const filteredItems = useMemo(() => {
+    let items = foodItems;
+    
+    // Filter by search term
+    if (searchTerm) {
+      items = items.filter(item => 
+        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+    
+    // Filter by category (if not "All")
+    if (activeCategory !== "All") {
+      items = items.filter(item => item.category === activeCategory);
+    }
+    
+    return items;
+  }, [activeCategory, searchTerm]);
   
   const isItemInBasket = (id: string) => {
     return basketItems.some(item => item.id === id);
@@ -36,10 +56,24 @@ const Index: React.FC = () => {
         </p>
       </div>
 
-      {/* Categories Navigation */}
-      <div className="mb-8 overflow-x-auto">
-        <div className="flex space-x-2 pb-2 min-w-max">
-          {foodCategories.map(category => (
+      {/* Search Bar */}
+      <div className="mb-6 relative">
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+          <input
+            type="text"
+            placeholder="Search ingredients..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-food-orange"
+          />
+        </div>
+      </div>
+
+      {/* Categories Navigation - Vertical on mobile, horizontal on desktop */}
+      <div className="mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap gap-2">
+          {allCategories.map(category => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
@@ -56,37 +90,43 @@ const Index: React.FC = () => {
 
       {/* Food Items Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {filteredItems.map(item => (
-          <div key={item.id} className="food-card">
-            <div className="flex items-center justify-center h-32 bg-food-beige rounded-md mb-3">
-              <img 
-                src={item.image} 
-                alt={item.name} 
-                className="h-24 w-24 object-contain" 
-              />
+        {filteredItems.length > 0 ? (
+          filteredItems.map(item => (
+            <div key={item.id} className="food-card">
+              <div className="flex items-center justify-center h-40 sm:h-32 bg-food-beige rounded-md mb-3">
+                <img 
+                  src={item.image} 
+                  alt={item.name} 
+                  className="h-28 w-28 object-contain" 
+                />
+              </div>
+              <h3 className="font-medium text-food-dark mb-1">{item.name}</h3>
+              <p className="text-sm text-gray-500 mb-3">{item.unit}</p>
+              
+              <Button
+                onClick={() => handleAddItem(item)}
+                className={isItemInBasket(item.id) 
+                  ? "w-full bg-food-green hover:bg-food-green/90" 
+                  : "w-full bg-food-orange hover:bg-food-orange/90"}
+                disabled={isItemInBasket(item.id)}
+              >
+                {isItemInBasket(item.id) ? (
+                  <>
+                    <Check className="mr-1 h-4 w-4" /> Added
+                  </>
+                ) : (
+                  <>
+                    <Plus className="mr-1 h-4 w-4" /> Add to Basket
+                  </>
+                )}
+              </Button>
             </div>
-            <h3 className="font-medium text-food-dark mb-1">{item.name}</h3>
-            <p className="text-sm text-gray-500 mb-3">{item.unit}</p>
-            
-            <Button
-              onClick={() => handleAddItem(item)}
-              className={isItemInBasket(item.id) 
-                ? "w-full bg-food-green hover:bg-food-green/90" 
-                : "w-full bg-food-orange hover:bg-food-orange/90"}
-              disabled={isItemInBasket(item.id)}
-            >
-              {isItemInBasket(item.id) ? (
-                <>
-                  <Check className="mr-1 h-4 w-4" /> Added
-                </>
-              ) : (
-                <>
-                  <Plus className="mr-1 h-4 w-4" /> Add to Basket
-                </>
-              )}
-            </Button>
+          ))
+        ) : (
+          <div className="col-span-full text-center py-8">
+            <p className="text-gray-500">No ingredients found matching your search.</p>
           </div>
-        ))}
+        )}
       </div>
     </Layout>
   );
