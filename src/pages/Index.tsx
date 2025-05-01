@@ -88,11 +88,11 @@ const Index: React.FC = () => {
                   key={item.id}
                   className="food-card flex flex-col"
                 >
-                  <div className="h-32 bg-food-beige rounded-md mb-2 overflow-hidden">
+                  <div className="h-32 rounded-md mb-2 overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <h3 className="text-food-dark font-medium mb-1">{item.name}</h3>

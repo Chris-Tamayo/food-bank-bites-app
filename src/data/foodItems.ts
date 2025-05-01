@@ -1,5 +1,38 @@
 
 import { FoodItem } from "@/hooks/useBasket";
+import cannedTuna from "../assets/canned-tuna.jpg";
+import cannedChicken from "../assets/canned-chicken.jpg";
+import eggs from "../assets/eggs.jpg";
+import peanutButter from "../assets/peanut-butter.webp";
+import driedBeans from "../assets/dried-beans.jpg"
+import rice from "../assets/rice.jpg"
+import pasta from "../assets/pasta.jpg"
+import cereal from "../assets/cereal.png"
+import bread from "../assets/bread.jpg"
+import oatmeal from "../assets/oatmeal.avif";
+import cannedSoup from "../assets/canned-soup.jpg";
+import cannedBeans from "../assets/canned-beans.webp";
+import cannedVegetables from "../assets/canned-vegetables.jpg";
+import cannedFruit from "../assets/canned-fruit.webp";
+import cannedTomato from "../assets/canned-tomatos.webp"
+import potato from "../assets/potato.webp"
+import onion from "../assets/onion.webp"
+import carrot from "../assets/carrot.webp"
+import apple from "../assets/apple.webp"
+import banana from "../assets/banana.webp"
+import milk from "../assets/milk.webp"
+import cheese from "../assets/cheese.webp"
+import butter from "../assets/butter.webp"
+import flour from "../assets/flour.webp"
+import sugar from "../assets/sugar.webp"
+import cookingOil from "../assets/olive-oil.webp"
+import ketchup from "../assets/ketchup.webp"
+import mustard from "../assets/mustard.webp"
+import mayo from "../assets/mayo.webp"
+import salt from "../assets/salt.webp"
+import pepper from "../assets/pepper.webp"
+
+
 
 // Mock food items that are typically available at food banks
 export const foodCategories = [
@@ -21,7 +54,7 @@ export const foodItems: FoodItem[] = [
     category: "Proteins",
     quantity: 1,
     unit: "can",
-    image: "/placeholder.svg",
+    image: cannedTuna,
   },
   {
     id: "2",
@@ -29,7 +62,7 @@ export const foodItems: FoodItem[] = [
     category: "Proteins",
     quantity: 1,
     unit: "can",
-    image: "/placeholder.svg",
+    image: cannedChicken,
   },
   {
     id: "3",
@@ -37,7 +70,7 @@ export const foodItems: FoodItem[] = [
     category: "Proteins",
     quantity: 1,
     unit: "dozen",
-    image: "/placeholder.svg",
+    image: eggs,
   },
   {
     id: "4",
@@ -45,7 +78,7 @@ export const foodItems: FoodItem[] = [
     category: "Proteins",
     quantity: 1,
     unit: "jar",
-    image: "/placeholder.svg",
+    image: peanutButter,
   },
   {
     id: "5",
@@ -53,7 +86,7 @@ export const foodItems: FoodItem[] = [
     category: "Proteins",
     quantity: 1,
     unit: "lb",
-    image: "/placeholder.svg",
+    image: driedBeans,
   },
   
   // Grains
@@ -63,7 +96,7 @@ export const foodItems: FoodItem[] = [
     category: "Grains",
     quantity: 1,
     unit: "lb",
-    image: "/placeholder.svg",
+    image: rice,
   },
   {
     id: "7",
@@ -71,7 +104,7 @@ export const foodItems: FoodItem[] = [
     category: "Grains",
     quantity: 1,
     unit: "box",
-    image: "/placeholder.svg",
+    image: pasta,
   },
   {
     id: "8",
@@ -79,7 +112,7 @@ export const foodItems: FoodItem[] = [
     category: "Grains",
     quantity: 1,
     unit: "box",
-    image: "/placeholder.svg",
+    image: cereal,
   },
   {
     id: "9",
@@ -87,7 +120,7 @@ export const foodItems: FoodItem[] = [
     category: "Grains",
     quantity: 1,
     unit: "loaf",
-    image: "/placeholder.svg",
+    image: bread,
   },
   {
     id: "10",
@@ -95,7 +128,7 @@ export const foodItems: FoodItem[] = [
     category: "Grains",
     quantity: 1,
     unit: "container",
-    image: "/placeholder.svg",
+    image: oatmeal,
   },
   
   // Canned Goods
@@ -105,7 +138,7 @@ export const foodItems: FoodItem[] = [
     category: "Canned Goods",
     quantity: 1,
     unit: "can",
-    image: "/placeholder.svg",
+    image: cannedSoup,
   },
   {
     id: "12",
@@ -113,7 +146,7 @@ export const foodItems: FoodItem[] = [
     category: "Canned Goods",
     quantity: 1,
     unit: "can",
-    image: "/placeholder.svg",
+    image: cannedBeans,
   },
   {
     id: "13",
@@ -121,7 +154,7 @@ export const foodItems: FoodItem[] = [
     category: "Canned Goods",
     quantity: 1,
     unit: "can",
-    image: "/placeholder.svg",
+    image: cannedVegetables,
   },
   {
     id: "14",
@@ -129,7 +162,7 @@ export const foodItems: FoodItem[] = [
     category: "Canned Goods",
     quantity: 1,
     unit: "can",
-    image: "/placeholder.svg",
+    image: cannedFruit,
   },
   {
     id: "15",
@@ -137,7 +170,7 @@ export const foodItems: FoodItem[] = [
     category: "Canned Goods",
     quantity: 1,
     unit: "can",
-    image: "/placeholder.svg",
+    image: cannedTomato,
   },
   
   // Vegetables
@@ -147,7 +180,7 @@ export const foodItems: FoodItem[] = [
     category: "Vegetables",
     quantity: 1,
     unit: "lb",
-    image: "/placeholder.svg",
+    image: potato,
   },
   {
     id: "17",
@@ -155,7 +188,7 @@ export const foodItems: FoodItem[] = [
     category: "Vegetables",
     quantity: 1,
     unit: "lb",
-    image: "/placeholder.svg",
+    image: onion,
   },
   {
     id: "18",
@@ -163,7 +196,7 @@ export const foodItems: FoodItem[] = [
     category: "Vegetables",
     quantity: 1,
     unit: "lb",
-    image: "/placeholder.svg",
+    image: carrot,
   },
   
   // Fruits
@@ -173,7 +206,7 @@ export const foodItems: FoodItem[] = [
     category: "Fruits",
     quantity: 1,
     unit: "lb",
-    image: "/placeholder.svg",
+    image: apple,
   },
   {
     id: "20",
@@ -181,7 +214,7 @@ export const foodItems: FoodItem[] = [
     category: "Fruits",
     quantity: 1,
     unit: "bunch",
-    image: "/placeholder.svg",
+    image: banana,
   },
   
   // Dairy
@@ -191,7 +224,7 @@ export const foodItems: FoodItem[] = [
     category: "Dairy",
     quantity: 1,
     unit: "gallon",
-    image: "/placeholder.svg",
+    image: milk,
   },
   {
     id: "22",
@@ -199,7 +232,7 @@ export const foodItems: FoodItem[] = [
     category: "Dairy",
     quantity: 1,
     unit: "package",
-    image: "/placeholder.svg",
+    image: cheese,
   },
   {
     id: "23",
@@ -207,7 +240,7 @@ export const foodItems: FoodItem[] = [
     category: "Dairy",
     quantity: 1,
     unit: "stick",
-    image: "/placeholder.svg",
+    image: butter,
   },
   
   // Baking & Cooking
@@ -217,7 +250,7 @@ export const foodItems: FoodItem[] = [
     category: "Baking & Cooking",
     quantity: 1,
     unit: "lb",
-    image: "/placeholder.svg",
+    image: flour,
   },
   {
     id: "25",
@@ -225,7 +258,7 @@ export const foodItems: FoodItem[] = [
     category: "Baking & Cooking",
     quantity: 1,
     unit: "lb",
-    image: "/placeholder.svg",
+    image: sugar,
   },
   {
     id: "26",
@@ -233,7 +266,7 @@ export const foodItems: FoodItem[] = [
     category: "Baking & Cooking",
     quantity: 1,
     unit: "bottle",
-    image: "/placeholder.svg",
+    image: cookingOil,
   },
   
   // Condiments
@@ -243,7 +276,7 @@ export const foodItems: FoodItem[] = [
     category: "Condiments",
     quantity: 1,
     unit: "bottle",
-    image: "/placeholder.svg",
+    image: ketchup,
   },
   {
     id: "28",
@@ -251,7 +284,7 @@ export const foodItems: FoodItem[] = [
     category: "Condiments",
     quantity: 1,
     unit: "bottle",
-    image: "/placeholder.svg",
+    image: mustard,
   },
   {
     id: "29",
@@ -259,7 +292,7 @@ export const foodItems: FoodItem[] = [
     category: "Condiments",
     quantity: 1,
     unit: "jar",
-    image: "/placeholder.svg",
+    image: mayo,
   },
   {
     id: "30",
@@ -267,7 +300,7 @@ export const foodItems: FoodItem[] = [
     category: "Condiments",
     quantity: 1,
     unit: "container",
-    image: "/placeholder.svg",
+    image: salt,
   },
   {
     id: "31",
@@ -275,6 +308,6 @@ export const foodItems: FoodItem[] = [
     category: "Condiments",
     quantity: 1,
     unit: "container",
-    image: "/placeholder.svg",
+    image: pepper,
   },
 ];
