@@ -40,39 +40,33 @@ const Landing: React.FC = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* How It Works Section (from About page) */}
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-center text-food-dark mb-12">How It Works</h2>
+          <h2 className="text-3xl font-bold text-center text-food-dark mb-8">How It Works</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div className="text-center">
-              <div className="bg-food-beige w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Carrot className="h-10 w-10 text-food-orange" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-food-dark">Select Your Ingredients</h3>
-              <p className="text-gray-600">
-                Choose the items you've received from your food bank visit.
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div className="bg-food-beige p-5 rounded-lg text-center">
+              <div className="text-4xl font-bold text-food-orange mb-2">1</div>
+              <h3 className="font-bold text-food-dark mb-2">Select Your Items</h3>
+              <p className="text-gray-700 text-sm">
+                Add the food items you've received to your virtual basket.
               </p>
             </div>
             
-            <div className="text-center">
-              <div className="bg-food-beige w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <UtensilsCrossed className="h-10 w-10 text-food-orange" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-food-dark">Find Matching Recipes</h3>
-              <p className="text-gray-600">
-                Our system will find recipes that match your available ingredients.
+            <div className="bg-food-beige p-5 rounded-lg text-center">
+              <div className="text-4xl font-bold text-food-orange mb-2">2</div>
+              <h3 className="font-bold text-food-dark mb-2">Get Recipes</h3>
+              <p className="text-gray-700 text-sm">
+                We'll suggest recipes based on the ingredients in your basket.
               </p>
             </div>
             
-            <div className="text-center">
-              <div className="bg-food-beige w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <ChefHat className="h-10 w-10 text-food-orange" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-food-dark">Cook & Enjoy</h3>
-              <p className="text-gray-600">
-                Follow our easy instructions to prepare delicious, nutritious meals.
+            <div className="bg-food-beige p-5 rounded-lg text-center">
+              <div className="text-4xl font-bold text-food-orange mb-2">3</div>
+              <h3 className="font-bold text-food-dark mb-2">Cook & Enjoy</h3>
+              <p className="text-gray-700 text-sm">
+                Follow the simple instructions to create delicious meals.
               </p>
             </div>
           </div>

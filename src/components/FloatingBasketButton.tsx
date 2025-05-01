@@ -37,4 +37,3 @@ const FloatingBasketButton: React.FC = () => {
 };
 
 export default FloatingBasketButton;
-

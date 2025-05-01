@@ -1,8 +1,8 @@
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import Layout from '@/components/layout/Layout';
 import { useBasket } from '@/hooks/useBasket';
-import { findMatchingRecipes } from '@/data/recipes';
+import { findMatchingRecipes, recipes } from '@/data/recipes';
 import { Button } from '@/components/ui/button';
 import { Clock, Users, ArrowRight, Percent, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -10,11 +10,14 @@ import { toast } from 'sonner';
 
 const Recipes: React.FC = () => {
   const { basketItems, favoriteRecipes, addToFavorites, removeFromFavorites } = useBasket();
+  const [showAllRecipes, setShowAllRecipes] = useState(false);
   
   const matchingRecipes = useMemo(() => {
     const basketItemIds = basketItems.map(item => item.id);
     return findMatchingRecipes(basketItemIds);
   }, [basketItems]);
+
+  const displayedRecipes = showAllRecipes ? recipes : matchingRecipes;
 
   const isRecipeFavorite = (recipeId: string) => {
     return favoriteRecipes.some(recipe => recipe.id === recipeId);
@@ -36,14 +39,22 @@ const Recipes: React.FC = () => {
         <h1 className="text-3xl md:text-4xl font-bold text-food-dark mb-2">
           Your <span className="text-food-orange">Recipe Matches</span>
         </h1>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-gray-600 max-w-2xl mx-auto mb-6">
           Based on the items in your basket, here are some recipes you can make.
         </p>
+        <div className="flex justify-center mb-6">
+          <Button 
+            onClick={() => setShowAllRecipes(!showAllRecipes)}
+            className={`${showAllRecipes ? 'bg-gray-500' : 'bg-food-orange'} hover:opacity-90`}
+          >
+            {showAllRecipes ? 'Show Matching Recipes Only' : 'Browse All Recipes'}
+          </Button>
+        </div>
       </div>
 
-      {matchingRecipes.length > 0 ? (
+      {displayedRecipes.length > 0 ? (
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-          {matchingRecipes.map(recipe => (
+          {displayedRecipes.map(recipe => (
             <div key={recipe.id} className="recipe-card relative">
               {/* Favorite button */}
               <button 
@@ -56,10 +67,12 @@ const Recipes: React.FC = () => {
               </button>
               
               {/* Match percentage badge */}
-              <div className="absolute top-4 right-4 bg-food-orange text-white rounded-full px-2 py-1 text-sm font-medium flex items-center">
-                <Percent className="mr-1 h-3 w-3" />
-                {recipe.matchPercentage}% Match
-              </div>
+              {!showAllRecipes && (
+                <div className="absolute top-4 right-4 bg-food-orange text-white rounded-full px-2 py-1 text-sm font-medium flex items-center">
+                  <Percent className="mr-1 h-3 w-3" />
+                  {recipe.matchPercentage}% Match
+                </div>
+              )}
               
               <div className="h-48 bg-food-beige rounded-md mb-4 overflow-hidden">
                 <img 

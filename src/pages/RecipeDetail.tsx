@@ -59,7 +59,7 @@ const RecipeDetail: React.FC = () => {
       
       document.body.innerHTML = `
         <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
-          <h1 style="text-align: center; margin-bottom: 20px; color: #FF7E36;">${recipe.title}</h1>
+          <h1 style="text-align: center; margin-bottom: 20px; color: #687A61;">${recipe.title}</h1>
           ${printContent}
         </div>
       `;
@@ -70,34 +70,10 @@ const RecipeDetail: React.FC = () => {
     }
   };
 
-  const handleDownload = () => {
-    // Create recipe text content
-    let content = `${recipe.title}\n\n`;
-    content += `${recipe.description}\n\n`;
-    content += `Prep Time: ${recipe.prepTime} minutes\n`;
-    content += `Cook Time: ${recipe.cookTime} minutes\n`;
-    content += `Servings: ${recipe.servings}\n\n`;
-    
-    content += "INGREDIENTS:\n";
-    recipe.ingredients.forEach(ing => {
-      content += `- ${ing.quantity} ${ing.name}\n`;
-    });
-    
-    content += "\nINSTRUCTIONS:\n";
-    recipe.instructions.forEach((step, index) => {
-      content += `${index + 1}. ${step}\n`;
-    });
-    
-    // Create file and download
-    const element = document.createElement('a');
-    const file = new Blob([content], {type: 'text/plain'});
-    element.href = URL.createObjectURL(file);
-    element.download = `${recipe.title.replace(/\s+/g, '-').toLowerCase()}.txt`;
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
-    
-    toast.success("Recipe downloaded successfully");
+  const handleSaveAsPDF = () => {
+    // Use the native browser print functionality which offers "Save as PDF" option
+    window.print();
+    toast.success("Save dialog opened");
   };
 
   return (
@@ -201,12 +177,12 @@ const RecipeDetail: React.FC = () => {
             </Button>
             
             <Button 
-              onClick={handleDownload}
+              onClick={handleSaveAsPDF}
               variant="outline" 
               className="flex-1 md:flex-none"
             >
               <Download className="mr-2 h-5 w-5" />
-              Download Recipe
+              Save as PDF
             </Button>
           </div>
         </div>

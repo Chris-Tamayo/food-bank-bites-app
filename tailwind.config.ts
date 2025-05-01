@@ -64,7 +64,7 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Food Bank Theme Colors
-				"food-orange": "#FF7E36",
+				"food-orange": "#687A61", // Changed from #FF7E36 to #687A61
 				"food-green": "#5BAA6F",
 				"food-beige": "#FFF8E7",
 				"food-brown": "#8B4513",

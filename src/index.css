@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 84% 4.9%;
 
-    --primary: 24 100% 60%;
+    --primary: 92 8% 43%; /* Changed to match #687A61 */
     --primary-foreground: 210 40% 98%;
 
     --secondary: 145 32% 52%;
@@ -46,7 +46,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 24 100% 60%;
+    --primary: 92 8% 43%; /* Changed to match #687A61 */
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 145 32% 52%;
