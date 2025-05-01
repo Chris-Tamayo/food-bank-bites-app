@@ -1,12 +1,12 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingBasket, Star } from 'lucide-react';
+import { Menu, X, ShoppingBasket } from 'lucide-react';
 import { useBasket } from '@/hooks/useBasket';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const { basketItems, favoriteRecipes } = useBasket();
+  const { basketItems } = useBasket();
   const location = useLocation();
   
   const toggleMenu = () => {
@@ -31,14 +31,6 @@ const Navbar: React.FC = () => {
             </Link>
             <Link to="/recipes" className="text-food-dark hover:text-food-orange transition-colors">
               Recipes
-            </Link>
-            <Link to="/favorites" className="text-food-dark hover:text-food-orange transition-colors">
-              Favorites
-              {favoriteRecipes.length > 0 && (
-                <span className="inline-flex items-center justify-center ml-1 bg-yellow-500 text-white text-xs rounded-full h-4 w-4">
-                  {favoriteRecipes.length}
-                </span>
-              )}
             </Link>
             <Link to="/basket" className="relative">
               <ShoppingBasket className="h-6 w-6 text-food-orange" />
@@ -86,18 +78,6 @@ const Navbar: React.FC = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Recipes
-              </Link>
-              <Link 
-                to="/favorites" 
-                className="text-food-dark hover:text-food-orange transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Favorites
-                {favoriteRecipes.length > 0 && (
-                  <span className="inline-flex items-center justify-center ml-1 bg-yellow-500 text-white text-xs rounded-full h-4 w-4">
-                    {favoriteRecipes.length}
-                  </span>
-                )}
               </Link>
               <Link 
                 to="/about" 
