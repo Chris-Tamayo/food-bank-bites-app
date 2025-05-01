@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 import { ShoppingBasket } from 'lucide-react';
 import { useBasket } from '@/hooks/useBasket';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import { useLocation } from 'react-router-dom';
 
 const FloatingBasketButton: React.FC = () => {
   const { basketItems } = useBasket();
+  const location = useLocation();
   
-  if (basketItems.length === 0) return null;
+  // Only show on ingredients page
+  if (basketItems.length === 0 || location.pathname !== '/ingredients') return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-40">

@@ -5,8 +5,9 @@ import { foodItems } from '@/data/foodItems';
 import { useBasket } from '@/hooks/useBasket';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Search, ShoppingBasket, Trash2 } from 'lucide-react';
+import { Search, Plus, X } from 'lucide-react';
 import { toast } from 'sonner';
+import FloatingBasketButton from '@/components/FloatingBasketButton';
 
 const Index: React.FC = () => {
   const { basketItems, addToBasket, removeFromBasket } = useBasket();
@@ -106,7 +107,7 @@ const Index: React.FC = () => {
                         className="w-full border-food-red text-food-red hover:bg-food-red/10"
                         size="sm"
                       >
-                        <Trash2 className="mr-1 h-4 w-4" /> Remove
+                        <X className="mr-1 h-4 w-4" /> Remove
                       </Button>
                     ) : (
                       <Button
@@ -114,7 +115,7 @@ const Index: React.FC = () => {
                         className="w-full bg-food-orange hover:bg-food-orange/90"
                         size="sm"
                       >
-                        <ShoppingBasket className="mr-1 h-4 w-4" /> Add to Basket
+                        <Plus className="mr-1 h-4 w-4" /> Add
                       </Button>
                     )}
                   </div>
@@ -148,13 +149,15 @@ const Index: React.FC = () => {
           <div className="text-center">
             <Link to="/basket">
               <Button className="bg-food-orange hover:bg-food-orange/90">
-                <ShoppingBasket className="mr-2 h-5 w-5" />
                 View Basket ({basketItems.length} {basketItems.length === 1 ? 'item' : 'items'})
               </Button>
             </Link>
           </div>
         )}
       </div>
+      
+      {/* Floating Basket Button */}
+      <FloatingBasketButton />
     </Layout>
   );
 };

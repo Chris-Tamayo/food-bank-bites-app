@@ -21,7 +21,7 @@ const App = () => (
     <TooltipProvider>
       <BasketProvider>
         <Toaster />
-        <Sonner />
+        <Sonner position="bottom-left" />
         <HashRouter>
           <Routes>
             <Route path="/" element={<Landing />} />
