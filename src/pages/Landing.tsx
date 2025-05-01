@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import logo from '../assets/healthy-steps-hawaii-logo.png';
 
 const Landing: React.FC = () => {
   return (
@@ -30,8 +31,8 @@ const Landing: React.FC = () => {
             <div className="md:w-1/2 mt-10 md:mt-0">
               <div className="bg-white p-6 rounded-lg shadow-lg">
                 <img 
-                  src="/placeholder.svg" 
-                  alt="Healthy Meal" 
+                  src={logo} 
+                  alt="Healthy Steps Hawaii Logo" 
                   className="w-full h-auto rounded-md"
                 />
               </div>
