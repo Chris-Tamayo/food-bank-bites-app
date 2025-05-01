@@ -64,11 +64,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				// Food Bank Theme Colors
-				"food-orange": "#687A61", // Changed from #FF7E36 to #687A61
+				"food-orange": "#687A61", // Changed from orange to green
 				"food-green": "#5BAA6F",
 				"food-beige": "#FFF8E7",
 				"food-brown": "#8B4513",
 				"food-dark": "#2D3142",
+				"food-red": "#E8A39C", // Added light red color for remove buttons
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -11,7 +11,6 @@ import Index from "./pages/Index";
 import Basket from "./pages/Basket";
 import Recipes from "./pages/Recipes";
 import RecipeDetail from "./pages/RecipeDetail";
-import FavoriteRecipes from "./pages/FavoriteRecipes";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
@@ -30,7 +29,6 @@ const App = () => (
             <Route path="/basket" element={<Basket />} />
             <Route path="/recipes" element={<Recipes />} />
             <Route path="/recipe/:id" element={<RecipeDetail />} />
-            <Route path="/favorites" element={<FavoriteRecipes />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

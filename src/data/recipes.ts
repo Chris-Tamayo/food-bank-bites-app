@@ -1,3 +1,4 @@
+
 export interface Recipe {
   id: string;
   title: string;
@@ -10,10 +11,22 @@ export interface Recipe {
   prepTime: number;
   cookTime: number;
   servings: number;
-  tags: string[];
+  tags: RecipeTag[];
   image: string;
   requiredFoodIds: string[];
   matchPercentage?: number;
+}
+
+export enum RecipeTag {
+  BREAKFAST = 'breakfast',
+  LUNCH = 'lunch',
+  DINNER = 'dinner',
+  VEGETARIAN = 'vegetarian',
+  VEGAN = 'vegan',
+  GLUTEN_FREE = 'gluten-free',
+  DAIRY_FREE = 'dairy-free',
+  QUICK = 'quick',
+  EASY = 'easy',
 }
 
 export const recipes: Recipe[] = [
@@ -42,7 +55,7 @@ export const recipes: Recipe[] = [
     prepTime: 5,
     cookTime: 10,
     servings: 1,
-    tags: ["breakfast", "air fryer", "sweet"],
+    tags: [RecipeTag.BREAKFAST, RecipeTag.QUICK, RecipeTag.EASY],
     image: "/placeholder.svg",
     requiredFoodIds: ["9", "4", "23", "3", "21"]
   },
@@ -70,7 +83,7 @@ export const recipes: Recipe[] = [
     prepTime: 5,
     cookTime: 15,
     servings: 2,
-    tags: ["lunch", "dinner", "quick", "easy"],
+    tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.QUICK, RecipeTag.EASY],
     image: "/placeholder.svg",
     requiredFoodIds: ["7", "1", "13", "30", "31", "26"]
   },
@@ -98,7 +111,7 @@ export const recipes: Recipe[] = [
     prepTime: 10,
     cookTime: 20,
     servings: 4,
-    tags: ["soup", "dinner", "vegetarian"],
+    tags: [RecipeTag.DINNER, RecipeTag.VEGETARIAN, RecipeTag.VEGAN],
     image: "/placeholder.svg",
     requiredFoodIds: ["12", "13", "15", "17", "30", "31"]
   },
@@ -123,7 +136,7 @@ export const recipes: Recipe[] = [
     prepTime: 2,
     cookTime: 8,
     servings: 2,
-    tags: ["breakfast", "vegetarian", "quick"],
+    tags: [RecipeTag.BREAKFAST, RecipeTag.VEGETARIAN, RecipeTag.QUICK],
     image: "/placeholder.svg",
     requiredFoodIds: ["10", "21", "4", "20", "25"]
   },
@@ -149,7 +162,7 @@ export const recipes: Recipe[] = [
     prepTime: 5,
     cookTime: 20,
     servings: 2,
-    tags: ["lunch", "dinner", "vegetarian"],
+    tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.VEGETARIAN],
     image: "/placeholder.svg",
     requiredFoodIds: ["6", "12", "30", "31", "22"]
   }

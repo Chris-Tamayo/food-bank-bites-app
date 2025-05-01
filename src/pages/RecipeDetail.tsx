@@ -11,16 +11,13 @@ import {
   Download, 
   ChevronLeft, 
   CheckCircle2,
-  Star
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { useBasket } from '@/hooks/useBasket';
 
 const RecipeDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const printRef = useRef<HTMLDivElement>(null);
-  const { favoriteRecipes, addToFavorites, removeFromFavorites } = useBasket();
   
   const recipe = useMemo(() => {
     return recipes.find(r => r.id === id);
@@ -40,18 +37,6 @@ const RecipeDetail: React.FC = () => {
     );
   }
 
-  const isFavorite = favoriteRecipes.some(favRecipe => favRecipe.id === recipe.id);
-
-  const toggleFavorite = () => {
-    if (isFavorite) {
-      removeFromFavorites(recipe.id);
-      toast.success("Removed from favorites");
-    } else {
-      addToFavorites(recipe);
-      toast.success("Added to favorites");
-    }
-  };
-
   const handlePrint = () => {
     if (printRef.current) {
       const printContent = printRef.current.innerHTML;
@@ -70,10 +55,35 @@ const RecipeDetail: React.FC = () => {
     }
   };
 
-  const handleSaveAsPDF = () => {
-    // Use the native browser print functionality which offers "Save as PDF" option
-    window.print();
-    toast.success("Save dialog opened");
+  const handleSaveAsText = () => {
+    // Create text content for the recipe
+    let content = `${recipe.title}\n\n`;
+    content += `Description: ${recipe.description}\n\n`;
+    content += `Prep Time: ${recipe.prepTime} mins | Cook Time: ${recipe.cookTime} mins | Servings: ${recipe.servings}\n\n`;
+    
+    content += "INGREDIENTS:\n";
+    recipe.ingredients.forEach(ing => {
+      content += `- ${ing.quantity} ${ing.name}\n`;
+    });
+    content += "\n";
+    
+    content += "INSTRUCTIONS:\n";
+    recipe.instructions.forEach((step, index) => {
+      content += `${index + 1}. ${step}\n`;
+    });
+    
+    // Create a Blob and download it
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${recipe.title.replace(/\s+/g, '-').toLowerCase()}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    toast.success("Recipe downloaded as text file");
   };
 
   return (
@@ -104,13 +114,6 @@ const RecipeDetail: React.FC = () => {
               <h1 className="text-2xl md:text-3xl font-bold text-food-dark">
                 {recipe.title}
               </h1>
-              <Button 
-                variant="ghost" 
-                onClick={toggleFavorite}
-                className={isFavorite ? "text-yellow-500" : "text-gray-400"}
-              >
-                <Star className={`h-6 w-6 ${isFavorite ? "fill-yellow-500" : ""}`} />
-              </Button>
             </div>
             
             <div className="flex flex-wrap items-center text-sm text-gray-600 mb-6">
@@ -134,7 +137,7 @@ const RecipeDetail: React.FC = () => {
                   key={index}
                   className="px-3 py-1 bg-food-beige text-food-brown rounded-full text-xs font-medium"
                 >
-                  {tag}
+                  {tag.charAt(0).toUpperCase() + tag.slice(1).replace('-', ' ')}
                 </span>
               ))}
             </div>
@@ -177,12 +180,12 @@ const RecipeDetail: React.FC = () => {
             </Button>
             
             <Button 
-              onClick={handleSaveAsPDF}
+              onClick={handleSaveAsText}
               variant="outline" 
               className="flex-1 md:flex-none"
             >
               <Download className="mr-2 h-5 w-5" />
-              Save as PDF
+              Save as Text
             </Button>
           </div>
         </div>

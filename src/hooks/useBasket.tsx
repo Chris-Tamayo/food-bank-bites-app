@@ -13,13 +13,9 @@ export interface FoodItem {
 
 interface BasketContextType {
   basketItems: FoodItem[];
-  favoriteRecipes: Recipe[];
   addToBasket: (item: FoodItem) => void;
   removeFromBasket: (itemId: string) => void;
   clearBasket: () => void;
-  addToFavorites: (recipe: Recipe) => void;
-  removeFromFavorites: (recipeId: string) => void;
-  isInFavorites: (recipeId: string) => boolean;
 }
 
 const BasketContext = createContext<BasketContextType | undefined>(undefined);
@@ -31,21 +27,10 @@ export const BasketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     return savedBasket ? JSON.parse(savedBasket) : [];
   });
 
-  // Initialize favorite recipes from localStorage
-  const [favoriteRecipes, setFavoriteRecipes] = useState<Recipe[]>(() => {
-    const savedFavorites = localStorage.getItem('favoriteRecipes');
-    return savedFavorites ? JSON.parse(savedFavorites) : [];
-  });
-
   // Save basket to localStorage when it changes
   useEffect(() => {
     localStorage.setItem('foodBasket', JSON.stringify(basketItems));
   }, [basketItems]);
-
-  // Save favorites to localStorage when they change
-  useEffect(() => {
-    localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteRecipes));
-  }, [favoriteRecipes]);
 
   const addToBasket = (item: FoodItem) => {
     setBasketItems(prevItems => {
@@ -69,37 +54,12 @@ export const BasketProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     setBasketItems([]);
   };
 
-  const addToFavorites = (recipe: Recipe) => {
-    setFavoriteRecipes(prevFavorites => {
-      const existingRecipe = prevFavorites.find(r => r.id === recipe.id);
-      if (existingRecipe) {
-        return prevFavorites;
-      } else {
-        return [...prevFavorites, recipe];
-      }
-    });
-  };
-
-  const removeFromFavorites = (recipeId: string) => {
-    setFavoriteRecipes(prevFavorites => 
-      prevFavorites.filter(recipe => recipe.id !== recipeId)
-    );
-  };
-
-  const isInFavorites = (recipeId: string) => {
-    return favoriteRecipes.some(recipe => recipe.id === recipeId);
-  };
-
   return (
     <BasketContext.Provider value={{ 
-      basketItems, 
-      favoriteRecipes,
+      basketItems,
       addToBasket, 
       removeFromBasket, 
-      clearBasket,
-      addToFavorites,
-      removeFromFavorites,
-      isInFavorites
+      clearBasket
     }}>
       {children}
     </BasketContext.Provider>

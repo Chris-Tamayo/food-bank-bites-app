@@ -2,36 +2,40 @@
 import React, { useMemo, useState } from 'react';
 import Layout from '@/components/layout/Layout';
 import { useBasket } from '@/hooks/useBasket';
-import { findMatchingRecipes, recipes } from '@/data/recipes';
+import { findMatchingRecipes, recipes, RecipeTag } from '@/data/recipes';
 import { Button } from '@/components/ui/button';
-import { Clock, Users, ArrowRight, Percent, Star } from 'lucide-react';
+import { Clock, Users, ArrowRight, Percent, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
 
 const Recipes: React.FC = () => {
-  const { basketItems, favoriteRecipes, addToFavorites, removeFromFavorites } = useBasket();
+  const { basketItems } = useBasket();
   const [showAllRecipes, setShowAllRecipes] = useState(false);
+  const [selectedTag, setSelectedTag] = useState<RecipeTag | null>(null);
   
   const matchingRecipes = useMemo(() => {
     const basketItemIds = basketItems.map(item => item.id);
     return findMatchingRecipes(basketItemIds);
   }, [basketItems]);
 
-  const displayedRecipes = showAllRecipes ? recipes : matchingRecipes;
-
-  const isRecipeFavorite = (recipeId: string) => {
-    return favoriteRecipes.some(recipe => recipe.id === recipeId);
-  };
-
-  const handleToggleFavorite = (recipe: any) => {
-    if (isRecipeFavorite(recipe.id)) {
-      removeFromFavorites(recipe.id);
-      toast.success(`Removed "${recipe.title}" from favorites`);
-    } else {
-      addToFavorites(recipe);
-      toast.success(`Added "${recipe.title}" to favorites`);
+  const displayedRecipes = useMemo(() => {
+    const recipesToFilter = showAllRecipes ? recipes : matchingRecipes;
+    
+    if (!selectedTag) {
+      return recipesToFilter;
     }
-  };
+    
+    return recipesToFilter.filter(recipe => recipe.tags.includes(selectedTag));
+  }, [showAllRecipes, matchingRecipes, selectedTag]);
+
+  // Get unique tags from all recipes
+  const availableTags = useMemo(() => {
+    const tagsSet = new Set<RecipeTag>();
+    recipes.forEach(recipe => {
+      recipe.tags.forEach(tag => tagsSet.add(tag));
+    });
+    return Array.from(tagsSet);
+  }, []);
 
   return (
     <Layout>
@@ -45,10 +49,33 @@ const Recipes: React.FC = () => {
         <div className="flex justify-center mb-6">
           <Button 
             onClick={() => setShowAllRecipes(!showAllRecipes)}
-            className={`${showAllRecipes ? 'bg-gray-500' : 'bg-food-orange'} hover:opacity-90`}
+            className={`${showAllRecipes ? 'bg-gray-500' : 'bg-food-orange'} hover:opacity-90 mr-3`}
           >
             {showAllRecipes ? 'Show Matching Recipes Only' : 'Browse All Recipes'}
           </Button>
+        </div>
+
+        {/* Tag filtering */}
+        <div className="flex flex-wrap justify-center gap-2 mb-6">
+          <Button
+            onClick={() => setSelectedTag(null)}
+            variant={selectedTag === null ? "default" : "outline"}
+            className={selectedTag === null ? "bg-food-orange hover:bg-food-orange/90" : ""}
+            size="sm"
+          >
+            All
+          </Button>
+          {availableTags.map((tag) => (
+            <Button
+              key={tag}
+              onClick={() => setSelectedTag(tag)}
+              variant={selectedTag === tag ? "default" : "outline"}
+              className={selectedTag === tag ? "bg-food-orange hover:bg-food-orange/90" : ""}
+              size="sm"
+            >
+              {tag.charAt(0).toUpperCase() + tag.slice(1).replace('-', ' ')}
+            </Button>
+          ))}
         </div>
       </div>
 
@@ -56,16 +83,6 @@ const Recipes: React.FC = () => {
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
           {displayedRecipes.map(recipe => (
             <div key={recipe.id} className="recipe-card relative">
-              {/* Favorite button */}
-              <button 
-                onClick={() => handleToggleFavorite(recipe)}
-                className="absolute top-4 left-4 p-1 rounded-full bg-white/80 hover:bg-white transition-colors z-10"
-              >
-                <Star 
-                  className={`h-5 w-5 ${isRecipeFavorite(recipe.id) ? 'text-yellow-500 fill-yellow-500' : 'text-gray-400'}`} 
-                />
-              </button>
-              
               {/* Match percentage badge */}
               {!showAllRecipes && (
                 <div className="absolute top-4 right-4 bg-food-orange text-white rounded-full px-2 py-1 text-sm font-medium flex items-center">
@@ -105,7 +122,7 @@ const Recipes: React.FC = () => {
                     key={index}
                     className="px-2 py-1 bg-food-beige text-food-brown rounded-full text-xs font-medium"
                   >
-                    {tag}
+                    {tag.charAt(0).toUpperCase() + tag.slice(1).replace('-', ' ')}
                   </span>
                 ))}
               </div>
@@ -139,7 +156,9 @@ const Recipes: React.FC = () => {
           </div>
           <h2 className="text-xl font-bold text-food-dark mb-2">No matching recipes found</h2>
           <p className="text-gray-600 mb-6">
-            Try adding more items to your basket to find recipes you can make.
+            {selectedTag ? 
+              `No ${selectedTag} recipes found. Try selecting a different filter.` : 
+              'Try adding more items to your basket to find recipes you can make.'}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link to="/ingredients" className="w-full sm:w-auto">
