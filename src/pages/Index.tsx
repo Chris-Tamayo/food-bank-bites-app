@@ -63,19 +63,17 @@ const Index: React.FC = () => {
             />
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap justify-center gap-2">
             {categories.map(category => (
-              <button
+              <Button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-3 py-1 text-sm rounded-full transition-colors ${
-                  activeCategory === category
-                    ? 'bg-food-orange text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                variant={activeCategory === category ? "default" : "outline"}
+                className={activeCategory === category ? "bg-food-orange hover:bg-food-orange/90" : ""}
+                size="sm"
               >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
-              </button>
+              </Button>
             ))}
           </div>
         </div>
@@ -107,7 +105,7 @@ const Index: React.FC = () => {
                         className="w-full border-food-red text-food-red hover:bg-food-red/10"
                         size="sm"
                       >
-                        <X className="mr-1 h-4 w-4" /> Remove
+                        <X className="h-4 w-4" /> Remove
                       </Button>
                     ) : (
                       <Button
@@ -115,7 +113,7 @@ const Index: React.FC = () => {
                         className="w-full bg-food-orange hover:bg-food-orange/90"
                         size="sm"
                       >
-                        <Plus className="mr-1 h-4 w-4" /> Add
+                        <Plus className="h-4 w-4" /> Add
                       </Button>
                     )}
                   </div>

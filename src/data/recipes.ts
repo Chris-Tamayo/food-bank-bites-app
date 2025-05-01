@@ -25,8 +25,13 @@ export enum RecipeTag {
   VEGAN = 'vegan',
   GLUTEN_FREE = 'gluten-free',
   DAIRY_FREE = 'dairy-free',
+  NUT_FREE = 'nut-free',
+  LOW_CARB = 'low-carb',
+  HIGH_PROTEIN = 'high-protein',
   QUICK = 'quick',
   EASY = 'easy',
+  DESSERT = 'dessert',
+  SNACK = 'snack',
 }
 
 export const recipes: Recipe[] = [
