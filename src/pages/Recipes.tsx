@@ -4,7 +4,7 @@ import Layout from '@/components/layout/Layout';
 import { useBasket } from '@/hooks/useBasket';
 import { findMatchingRecipes, recipes, RecipeTag } from '@/data/recipes';
 import { Button } from '@/components/ui/button';
-import { Clock, Users, ArrowRight, Percent, Filter } from 'lucide-react';
+import { Clock, Users, ArrowRight, Percent } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Recipes: React.FC = () => {
@@ -46,10 +46,10 @@ const Recipes: React.FC = () => {
           Based on the items in your basket, here are some recipes you can make.
         </p>
         
-        {/* Filtering section with the "browse all" toggle */}
-        <div className="flex flex-col items-center mb-6">
-          <div className="flex items-center justify-center gap-4 mb-4 w-full">
-            <span className="text-sm font-medium text-gray-700">Show:</span>
+        {/* Filtering section */}
+        <div className="mb-8">
+          {/* Browse All toggle button */}
+          <div className="mb-4">
             <Button 
               onClick={() => setShowAllRecipes(!showAllRecipes)}
               className={`${showAllRecipes ? 'bg-gray-500' : 'bg-food-orange'} hover:opacity-90`}
