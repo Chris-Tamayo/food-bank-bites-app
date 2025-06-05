@@ -20,40 +20,11 @@ const About: React.FC = () => {
         <div className="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
           <h2 className="text-2xl font-bold text-food-dark mb-4">Our Mission</h2>
           <p className="text-gray-700 mb-6">
-            NourishHI was created to help people make the most of the ingredients they receive from food banks. 
-            We believe that everyone deserves access to nutritious and delicious meals, regardless of their circumstances.
+            NourishHI was created by Healthy Steps Hawaii in partnership with the Food Vault at the University of Hawaii at Manoa and Well Fed Ohana. Our vision is for everyone in Hawaii to be able to have access to healthy and delicious meals no matter the price. We hope that this app will allow people to take control of their diet and therefore health, without sacrificing the taste of Hawaii that we all love. 
           </p>
           <p className="text-gray-700 mb-6">
-            Our recipe suggestions are specifically designed to work with common food bank items, 
-            ensuring that you can create satisfying meals with what you have on hand.
+            Our recipe selection is usable by anyone, but it has a focus on those that commonly shop at food pantries or have access to low-cost foods from the supermarket. Click the select foods tab to get started!
           </p>
-          
-          <h2 className="text-2xl font-bold text-food-dark mb-4 mt-8">How It Works</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            <div className="bg-food-beige p-5 rounded-lg text-center">
-              <div className="text-4xl font-bold text-food-orange mb-2">1</div>
-              <h3 className="font-bold text-food-dark mb-2">Select Your Items</h3>
-              <p className="text-gray-700 text-sm">
-                Add the food items you've received to your virtual basket.
-              </p>
-            </div>
-            
-            <div className="bg-food-beige p-5 rounded-lg text-center">
-              <div className="text-4xl font-bold text-food-orange mb-2">2</div>
-              <h3 className="font-bold text-food-dark mb-2">Get Recipes</h3>
-              <p className="text-gray-700 text-sm">
-                We'll suggest recipes based on the ingredients in your basket.
-              </p>
-            </div>
-            
-            <div className="bg-food-beige p-5 rounded-lg text-center">
-              <div className="text-4xl font-bold text-food-orange mb-2">3</div>
-              <h3 className="font-bold text-food-dark mb-2">Cook & Enjoy</h3>
-              <p className="text-gray-700 text-sm">
-                Follow the simple instructions to create delicious meals.
-              </p>
-            </div>
-          </div>
           
           <h2 className="text-2xl font-bold text-food-dark mb-4 mt-8">Our Values</h2>
           <ul className="space-y-4 mb-6">
@@ -80,18 +51,6 @@ const About: React.FC = () => {
                 </p>
               </div>
             </li>
-            
-            <li className="flex items-start">
-              <div className="h-6 w-6 rounded-full bg-food-orange text-white flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
-                ✓
-              </div>
-              <div>
-                <h3 className="font-bold text-food-dark">Dignity</h3>
-                <p className="text-gray-700">
-                  We believe that everyone deserves to enjoy good food, prepared with care and respect.
-                </p>
-              </div>
-            </li>
           </ul>
         </div>
         
@@ -99,7 +58,7 @@ const About: React.FC = () => {
           <p className="text-lg text-gray-700 mb-6">
             Ready to start cooking with your food bank ingredients?
           </p>
-          <Link to="/">
+          <Link to="/ingredients">
             <Button size="lg" className="bg-food-orange hover:bg-food-orange/90">
               Get Started
             </Button>
