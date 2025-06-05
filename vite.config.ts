@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/food-bank-bites-app/',
+  base: '/nourish-hawaii/',
   server: {
     host: "::",
     port: 8080,
