@@ -1,3 +1,36 @@
+import minestrone from '../assets/minestrone.webp';
+import hkFrenchToast from '../assets/hk-french-toast.jpg';
+import saimin from '../assets/saimin.jpg';
+import chickenSausageShrimpGumbo from '../assets/chicken-sausage-shrimp-gumbo.webp';
+import survivalLentils from '../assets/survival-lentils.webp';
+import chili from '../assets/chili.avif';
+import chickenSaladRiceVegetables from '../assets/chicken-salad-rice-vegetables.webp';
+import creme from '../assets/creme.jpg';
+import gingerChickenFriedRice from '../assets/ginger-chicken-fried-rice.webp';
+import crunchyTunaSalad from '../assets/crunchy-tuna-salad.jpeg';
+import veggiePasta from '../assets/veggie-pasta.jpeg';
+import chickenEnchiladas from '../assets/chicken-enchiladas.webp';
+import turkeyChili from '../assets/turkey-chili.webp';
+import chickenBokRamen from '../assets/creamed-tuna.jpg';
+import creamedTuna from '../assets/chicken-enchiladas.webp';
+import vietnamesePancake from '../assets/vietnamese-pancake.jpg';
+import friedRice from '../assets/fried-rice.jpg';
+import vietnameseBeefStew from '../assets/vietnamese-beef-stew.jpg';
+import tunaPasta from '../assets/tuna-pasta.jpg';
+import beanVegetableSoup from '../assets/bean-vegetable-soup.jpg';
+import peanutButterBananaOatmeal from '../assets/peanut-butter-banana-oatmeal.jpg';
+import riceBeanBowl from '../assets/yogurt.jpg';
+import yogurt from '../assets/chicken-enchiladas.webp';
+import springRolls from '../assets/spring-rolls.webp';
+import jangyNoodles from '../assets/jangy-noodles.webp';
+import spaghettiGoreng from '../assets/spaghetti-goreng.jpg';
+import khichuri from '../assets/khichuri.jpg';
+import nachos from '../assets/nachos.jpg';
+import curryRamen from '../assets/curry-ramen.jpg';
+import rotiniPasta from '../assets/rotini-pasta.jpg';
+import hotMilkTea from '../assets/hot-milk-tea.jpg';
+
+
 export interface Recipe {
   id: string;
   title: string;
@@ -60,7 +93,7 @@ export const recipes: Recipe[] = [
     cookTime: 10,
     servings: 1,
     tags: [RecipeTag.BREAKFAST, RecipeTag.QUICK, RecipeTag.EASY],
-    image: "/placeholder.svg",
+    image: hkFrenchToast,
     requiredFoodIds: ["9", "4", "23", "3", "21"]
   },
   {
@@ -92,7 +125,7 @@ export const recipes: Recipe[] = [
     cookTime: 15,
     servings: 2,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.QUICK, RecipeTag.EASY],
-    image: "/placeholder.svg",
+    image: saimin,
     requiredFoodIds: ["7", "17", "18", "30"]
   },
   {
@@ -134,7 +167,7 @@ export const recipes: Recipe[] = [
     cookTime: 90,
     servings: 6,
     tags: [RecipeTag.DINNER, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: chickenSausageShrimpGumbo,
     requiredFoodIds: ["26", "9", "2", "8", "17", "19", "6"]
   },
   {
@@ -156,7 +189,7 @@ export const recipes: Recipe[] = [
     cookTime: 35,
     servings: 2,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.VEGAN, RecipeTag.HIGH_PROTEIN, RecipeTag.EASY],
-    image: "/placeholder.svg",
+    image: survivalLentils,
     requiredFoodIds: ["6", "11", "13"]
   },
   {
@@ -190,7 +223,7 @@ export const recipes: Recipe[] = [
     cookTime: 45,
     servings: 6,
     tags: [RecipeTag.DINNER, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: chili,
     requiredFoodIds: ["26", "2", "8", "17", "19", "15", "12"]
   },
   {
@@ -224,7 +257,7 @@ export const recipes: Recipe[] = [
     cookTime: 25,
     servings: 2,
     tags: [RecipeTag.LUNCH, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: chickenSaladRiceVegetables,
     requiredFoodIds: ["6", "17", "18", "14", "16", "9", "2"]
   },
   {
@@ -246,7 +279,7 @@ export const recipes: Recipe[] = [
     cookTime: 0,
     servings: 2,
     tags: [RecipeTag.DESSERT, RecipeTag.SNACK, RecipeTag.QUICK, RecipeTag.EASY, RecipeTag.VEGETARIAN],
-    image: "/placeholder.svg",
+    image: creme,
     requiredFoodIds: ["20", "4", "21"]
   },
   {
@@ -281,7 +314,7 @@ export const recipes: Recipe[] = [
     cookTime: 10,
     servings: 3,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.QUICK, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: gingerChickenFriedRice,
     requiredFoodIds: ["6", "2", "17", "18", "25", "26"]
   },
   {
@@ -310,7 +343,7 @@ export const recipes: Recipe[] = [
     cookTime: 0,
     servings: 2,
     tags: [RecipeTag.LUNCH, RecipeTag.SNACK, RecipeTag.QUICK, RecipeTag.EASY, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: crunchyTunaSalad,
     requiredFoodIds: ["1", "17", "19", "30", "31"]
   },
   {
@@ -338,7 +371,7 @@ export const recipes: Recipe[] = [
     cookTime: 15,
     servings: 4,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.VEGETARIAN, RecipeTag.QUICK, RecipeTag.EASY],
-    image: "/placeholder.svg",
+    image: veggiePasta,
     requiredFoodIds: ["7", "15", "19", "17", "22", "13"]
   },
   {
@@ -385,7 +418,7 @@ export const recipes: Recipe[] = [
     cookTime: 60,
     servings: 6,
     tags: [RecipeTag.DINNER, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: chickenEnchiladas,
     requiredFoodIds: ["12", "2", "15", "17", "18", "22", "9", "26"]
   },
   {
@@ -426,7 +459,7 @@ export const recipes: Recipe[] = [
     cookTime: 60,
     servings: 6,
     tags: [RecipeTag.DINNER, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: turkeyChili,
     requiredFoodIds: ["2", "17", "18", "15", "12", "14", "30", "31", "26"]
   },
   {
@@ -463,7 +496,7 @@ export const recipes: Recipe[] = [
     cookTime: 15,
     servings: 1,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.QUICK, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: chickenBokRamen,
     requiredFoodIds: ["2", "7", "16", "3", "18", "26"]
   },
   {
@@ -496,7 +529,7 @@ export const recipes: Recipe[] = [
     cookTime: 10,
     servings: 4,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.QUICK, RecipeTag.EASY, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: creamedTuna,
     requiredFoodIds: ["1", "17", "21", "23", "30", "31", "3"]
   },
   {
@@ -537,7 +570,7 @@ export const recipes: Recipe[] = [
     cookTime: 20,
     servings: 4,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.GLUTEN_FREE],
-    image: "/placeholder.svg",
+    image: vietnamesePancake,
     requiredFoodIds: ["6", "17", "18", "1", "2", "8", "25", "30"]
   },
   {
@@ -572,13 +605,13 @@ export const recipes: Recipe[] = [
     cookTime: 15,
     servings: 4,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.QUICK, RecipeTag.EASY],
-    image: "/placeholder.svg",
+    image: friedRice,
     requiredFoodIds: ["6", "26", "1", "2", "8", "14", "13", "18", "3", "16"]
   },
   {
     id: "17",
-    title: "Vietnamese Stew Beef",
-    description: "Traditional Vietnamese Stew Beef featuring tender beef chunks in an aromatic, spiced broth with carrots. Perfect served with rice or bread.",
+    title: "Vietnamese Beef Stew",
+    description: "Traditional Vietnamese Beef Stew featuring tender beef chunks in an aromatic, spiced broth with carrots. Perfect served with rice or bread.",
     ingredients: [
       { name: "Beef chuck or brisket, cubed", quantity: "2.5 lbs" },
       { name: "Garlic, minced", quantity: "1 tbsp" },
@@ -617,7 +650,7 @@ export const recipes: Recipe[] = [
     cookTime: 120,
     servings: 6,
     tags: [RecipeTag.DINNER, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: vietnameseBeefStew,
     requiredFoodIds: ["2", "17", "18", "19", "25", "26", "15"]
   },
   {
@@ -645,7 +678,7 @@ export const recipes: Recipe[] = [
     cookTime: 15,
     servings: 2,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.QUICK, RecipeTag.EASY],
-    image: "/placeholder.svg",
+    image: tunaPasta,
     requiredFoodIds: ["7", "1", "13", "30", "31", "26"]
   },
   {
@@ -673,7 +706,7 @@ export const recipes: Recipe[] = [
     cookTime: 20,
     servings: 4,
     tags: [RecipeTag.DINNER, RecipeTag.VEGETARIAN, RecipeTag.VEGAN],
-    image: "/placeholder.svg",
+    image: beanVegetableSoup,
     requiredFoodIds: ["12", "13", "15", "17", "30", "31"]
   },
   {
@@ -698,7 +731,7 @@ export const recipes: Recipe[] = [
     cookTime: 8,
     servings: 2,
     tags: [RecipeTag.BREAKFAST, RecipeTag.VEGETARIAN, RecipeTag.QUICK],
-    image: "/placeholder.svg",
+    image: peanutButterBananaOatmeal,
     requiredFoodIds: ["10", "21", "4", "20", "25"]
   },
   {
@@ -724,7 +757,7 @@ export const recipes: Recipe[] = [
     cookTime: 20,
     servings: 2,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.VEGETARIAN],
-    image: "/placeholder.svg",
+    image: riceBeanBowl,
     requiredFoodIds: ["6", "12", "30", "31", "22"]
   },
   {
@@ -751,7 +784,7 @@ export const recipes: Recipe[] = [
     cookTime: 480, // 8 hours incubation
     servings: 4,
     tags: [RecipeTag.BREAKFAST, RecipeTag.DESSERT, RecipeTag.VEGETARIAN],
-    image: "/placeholder.svg",
+    image: yogurt,
     requiredFoodIds: ["21", "25", "1", "20"]
   },
   {
@@ -785,7 +818,7 @@ export const recipes: Recipe[] = [
     cookTime: 15,
     servings: 4,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.SNACK],
-    image: "/placeholder.svg",
+    image: springRolls,
     requiredFoodIds: ["1", "2", "7", "17", "18", "3", "25"]
   },
   {
@@ -818,7 +851,7 @@ export const recipes: Recipe[] = [
     cookTime: 20,
     servings: 4,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.VEGETARIAN],
-    image: "/placeholder.svg",
+    image: jangyNoodles,
     requiredFoodIds: ["7", "17", "18", "15", "21"]
   },
   {
@@ -854,7 +887,7 @@ export const recipes: Recipe[] = [
     cookTime: 15,
     servings: 4,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: spaghettiGoreng,
     requiredFoodIds: ["7", "3", "18", "8", "26"]
   },
   {
@@ -886,7 +919,7 @@ export const recipes: Recipe[] = [
     cookTime: 30,
     servings: 6,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.EASY],
-    image: "/placeholder.svg",
+    image: minestrone,
     requiredFoodIds: ["2", "8", "12", "13", "15", "7", "30", "31"]
   },
   {
@@ -923,7 +956,7 @@ export const recipes: Recipe[] = [
     cookTime: 75,
     servings: 6,
     tags: [RecipeTag.DINNER, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: khichuri,
     requiredFoodIds: ["6", "11", "17", "18", "25", "26", "2"]
   },
   {
@@ -954,7 +987,7 @@ export const recipes: Recipe[] = [
     cookTime: 20,
     servings: 4,
     tags: [RecipeTag.SNACK, RecipeTag.QUICK, RecipeTag.EASY],
-    image: "/placeholder.svg",
+    image: nachos,
     requiredFoodIds: ["2", "22", "9", "19"]
   },
   {
@@ -990,7 +1023,7 @@ export const recipes: Recipe[] = [
     cookTime: 10,
     servings: 1,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.QUICK, RecipeTag.VEGETARIAN],
-    image: "/placeholder.svg",
+    image: curryRamen,
     requiredFoodIds: ["7", "17", "18", "4", "21"]
   },
   {
@@ -1018,7 +1051,7 @@ export const recipes: Recipe[] = [
     cookTime: 15,
     servings: 2,
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.QUICK, RecipeTag.EASY, RecipeTag.VEGETARIAN],
-    image: "/placeholder.svg",
+    image: rotiniPasta,
     requiredFoodIds: ["7", "17", "15", "26", "30"]
   },
   {
@@ -1055,7 +1088,7 @@ export const recipes: Recipe[] = [
     cookTime: 60,
     servings: 6,
     tags: [RecipeTag.DINNER, RecipeTag.HIGH_PROTEIN],
-    image: "/placeholder.svg",
+    image: chickenEnchiladas,
     requiredFoodIds: ["12", "2", "17", "18", "22", "9", "21", "26"]
   },
   {
@@ -1081,7 +1114,7 @@ export const recipes: Recipe[] = [
     cookTime: 3,
     servings: 1,
     tags: [RecipeTag.BREAKFAST, RecipeTag.QUICK, RecipeTag.VEGETARIAN],
-    image: "/placeholder.svg",
+    image: hotMilkTea,
     requiredFoodIds: ["21", "25", "18"]
   }
 ];
