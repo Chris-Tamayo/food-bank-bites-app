@@ -10,7 +10,7 @@ const About: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <div className="mb-8 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-food-dark mb-4">
-            About <span className="text-food-orange">FoodBank Bites</span>
+            About <span className="text-food-orange">NourishHI</span>
           </h1>
           <p className="text-lg text-gray-600">
             Making delicious meals with food bank ingredients
@@ -20,7 +20,7 @@ const About: React.FC = () => {
         <div className="bg-white rounded-lg shadow-md p-6 md:p-8 mb-8">
           <h2 className="text-2xl font-bold text-food-dark mb-4">Our Mission</h2>
           <p className="text-gray-700 mb-6">
-            FoodBank Bites was created to help people make the most of the ingredients they receive from food banks. 
+            NourishHI was created to help people make the most of the ingredients they receive from food banks. 
             We believe that everyone deserves access to nutritious and delicious meals, regardless of their circumstances.
           </p>
           <p className="text-gray-700 mb-6">

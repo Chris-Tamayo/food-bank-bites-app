@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <Link to="/" className="text-2xl font-bold text-food-dark">
-            FoodBank <span className="text-food-orange">Bites</span>
+            Nourish<span className="text-food-orange">HI</span>
           </Link>
           
           {/* Desktop Navigation */}
@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
               About
             </Link>
             <Link to="/ingredients" className="text-food-dark hover:text-food-orange transition-colors">
-              Select Foods
+              Ingredients
             </Link>
             <Link to="/recipes" className="text-food-dark hover:text-food-orange transition-colors">
               Recipes
@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
                 className="text-food-dark hover:text-food-orange transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Select Foods
+                Ingredients
               </Link>
               <Link 
                 to="/recipes" 

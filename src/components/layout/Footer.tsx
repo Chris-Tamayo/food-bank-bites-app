@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">FoodBank Bites</h3>
+            <h3 className="text-xl font-bold mb-4">NourishHI</h3>
             <p className="text-gray-300">
               Helping you create delicious meals with food bank ingredients.
             </p>
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-300 hover:text-food-orange transition-colors">
-                  Select Foods
+                  Ingredients
                 </Link>
               </li>
               <li>
@@ -41,15 +41,15 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-bold mb-4">Contact</h3>
             <p className="text-gray-300">
               Have questions or suggestions? <br />
-              <a href="mailto:contact@foodbankbites.org" className="text-food-orange hover:underline">
-                contact@foodbankbites.org
+              <a href="mailto:contact@healthystepshi@gmail.com" className="text-food-orange hover:underline">
+                contact@healthystepshi@gmail.com
               </a>
             </p>
           </div>
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-300">
-          &copy; {currentYear} FoodBank Bites. All rights reserved.
+          &copy; {currentYear} NourishHI. All rights reserved.
         </div>
       </div>
     </footer>
