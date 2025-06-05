@@ -726,6 +726,363 @@ export const recipes: Recipe[] = [
     tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.VEGETARIAN],
     image: "/placeholder.svg",
     requiredFoodIds: ["6", "12", "30", "31", "22"]
+  },
+  {
+    id: "22",
+    title: "Yogurt",
+    description: "Easy recipe to make yogurt using evaporated milk and a yogurt starter. Perfect for a homemade treat with your favorite canned fruits.",
+    ingredients: [
+      { name: "Evaporated milk", quantity: "1 can" },
+      { name: "Sugar", quantity: "5 tablespoons" },
+      { name: "Hot water", quantity: "1 can (same size as milk can)" },
+      { name: "Plain yogurt with live cultures", quantity: "1 cup" },
+      { name: "Canned fruit", quantity: "1 cup" }
+    ],
+    instructions: [
+      "In a large bowl, whisk together evaporated milk, sugar, and hot water (160–170°F). Stir until smooth.",
+      "Let the milk mixture cool to around 110°F (warm to touch, not hot).",
+      "Add plain yogurt and mix gently until fully dissolved.",
+      "Add diced canned fruit and stir to mix everything well.",
+      "Use yogurt maker or Instant Pot yogurt setting for 8-10 hours, or let sit undisturbed for 8-10 hours until set.",
+      "After incubation, refrigerate for at least 4 hours.",
+      "Serve cold with honey, chia seeds, or eat plain."
+    ],
+    prepTime: 15,
+    cookTime: 480, // 8 hours incubation
+    servings: 4,
+    tags: [RecipeTag.BREAKFAST, RecipeTag.DESSERT, RecipeTag.VEGETARIAN],
+    image: "/placeholder.svg",
+    requiredFoodIds: ["21", "25", "1", "20"]
+  },
+  {
+    id: "23",
+    title: "Spring Rolls (Chả Giò)",
+    description: "Vietnamese-style spring rolls made with canned ingredients. Crispy fried rolls filled with tuna or chicken, vegetables, and ramen noodles.",
+    ingredients: [
+      { name: "Canned tuna or chicken", quantity: "1 can" },
+      { name: "Ramen noodles, cooked and chopped", quantity: "1 pack" },
+      { name: "Canned corn or green beans", quantity: "1/4 cup" },
+      { name: "Onion, minced", quantity: "1/4 medium" },
+      { name: "Garlic, minced", quantity: "1 clove" },
+      { name: "Zucchini, finely shredded", quantity: "1/2 cup" },
+      { name: "Egg", quantity: "1" },
+      { name: "Fish sauce or soy sauce", quantity: "1 tsp" },
+      { name: "Sugar", quantity: "1/2 tsp" },
+      { name: "Rice paper sheets", quantity: "10" },
+      { name: "Oil for frying", quantity: "for frying" }
+    ],
+    instructions: [
+      "Mix drained tuna/chicken, cooked ramen, corn/vegetables, onion, garlic, zucchini, egg, fish sauce, sugar, and pepper in a bowl.",
+      "Soften rice paper sheets in warm water for 3-5 seconds and place on damp towel.",
+      "Place 2 tablespoons of filling near edge of wrapper.",
+      "Fold sides in, then roll tightly from bottom up. Seal end with water or beaten egg.",
+      "Heat 1 inch of oil in pan over medium heat.",
+      "Fry rolls in batches until golden brown and crispy, about 4-5 minutes per side.",
+      "Remove and drain on paper towels.",
+      "Serve hot with dipping sauce and fresh vegetables."
+    ],
+    prepTime: 30,
+    cookTime: 15,
+    servings: 4,
+    tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.SNACK],
+    image: "/placeholder.svg",
+    requiredFoodIds: ["1", "2", "7", "17", "18", "3", "25"]
+  },
+  {
+    id: "24",
+    title: "Jangy Noodles",
+    description: "A fusion dish combining Korean jang (fermented sauces) with Italian pasta. An easy dish that blends Korean flavors with classic tomato-based pasta.",
+    ingredients: [
+      { name: "Spaghetti noodles", quantity: "1 box" },
+      { name: "Onion", quantity: "1/2" },
+      { name: "Button mushrooms", quantity: "1 can" },
+      { name: "Garlic", quantity: "6 cloves" },
+      { name: "Tomato paste", quantity: "1 can or 6 tbsp" },
+      { name: "Jang (doenjang, gochujang, or ssamjang)", quantity: "4 tbsp" },
+      { name: "Milk", quantity: "1 cup" },
+      { name: "Salt", quantity: "to taste" },
+      { name: "Black pepper", quantity: "for garnish" },
+      { name: "Green onion", quantity: "for garnish" },
+      { name: "Sesame seeds", quantity: "for garnish" }
+    ],
+    instructions: [
+      "Cook spaghetti noodles according to box instructions in a large pot of boiling water.",
+      "Mince mushrooms and garlic.",
+      "Brown mushrooms and garlic in a pan over medium heat.",
+      "Add tomato paste and choice of jang, mix well.",
+      "Slowly mix in milk to create sauce.",
+      "Add cooked noodles and mix thoroughly.",
+      "Garnish with black pepper, green onion, and sesame seeds."
+    ],
+    prepTime: 10,
+    cookTime: 20,
+    servings: 4,
+    tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.VEGETARIAN],
+    image: "/placeholder.svg",
+    requiredFoodIds: ["7", "17", "18", "15", "21"]
+  },
+  {
+    id: "25",
+    title: "Spaghetti Goreng (Stir Fry Spaghetti)",
+    description: "Indonesian-inspired stir-fried spaghetti with sweet soy sauce and spam. A unique fusion dish that combines Italian pasta with Southeast Asian flavors.",
+    ingredients: [
+      { name: "Spaghetti", quantity: "1/2 pack" },
+      { name: "Kecap manis (sweet soy sauce)", quantity: "4 tbsp" },
+      { name: "Oyster sauce", quantity: "3 tbsp" },
+      { name: "Ketchup", quantity: "1 tbsp" },
+      { name: "Vegetable oil", quantity: "3 tbsp" },
+      { name: "Eggs", quantity: "2" },
+      { name: "Garlic, chopped", quantity: "3 cloves" },
+      { name: "Spam, cubed", quantity: "1/2 can" },
+      { name: "Shrimp (optional)", quantity: "7" },
+      { name: "Cabbage, sliced", quantity: "2 cups" },
+      { name: "Green onions", quantity: "2 stalks" },
+      { name: "Salt", quantity: "to taste" }
+    ],
+    instructions: [
+      "Boil spaghetti until soft (10-15 minutes). Rinse with cold water and drain.",
+      "Mix noodles with sweet soy sauce and salt. Set aside.",
+      "Heat 1 tbsp oil in pan. Scramble eggs into small pieces and set aside.",
+      "Cut spam and vegetables into small pieces.",
+      "Heat 1 tbsp oil in large pan. Add garlic and stir-fry for 2 minutes.",
+      "Add spam and shrimp, stir-fry on high heat for 2 minutes.",
+      "Reduce to medium heat, add eggs, vegetables, and prepared spaghetti.",
+      "Pour in oyster sauce and mix thoroughly. Adjust seasoning.",
+      "Add green onions and give final stir before serving."
+    ],
+    prepTime: 15,
+    cookTime: 15,
+    servings: 4,
+    tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.HIGH_PROTEIN],
+    image: "/placeholder.svg",
+    requiredFoodIds: ["7", "3", "18", "8", "26"]
+  },
+  {
+    id: "26",
+    title: "Minestrone",
+    description: "A hearty Italian soup made with whatever canned ingredients you have on hand. Simple one-pot meal that's ready in 30 minutes.",
+    ingredients: [
+      { name: "Canned chicken", quantity: "1 can" },
+      { name: "Canned spam", quantity: "1 can" },
+      { name: "Canned beans or legumes", quantity: "1 can" },
+      { name: "Canned vegetables", quantity: "1 can" },
+      { name: "Tomato sauce or marinara", quantity: "1 can" },
+      { name: "Dried pasta", quantity: "1/4 box" },
+      { name: "Pepper", quantity: "to taste" },
+      { name: "Salt", quantity: "to taste" },
+      { name: "Water", quantity: "3 cups" },
+      { name: "Chicken bouillon cubes", quantity: "2" },
+      { name: "Fresh vegetables", quantity: "as desired" }
+    ],
+    instructions: [
+      "Boil 3 cups of water in a large pot.",
+      "Cut vegetables and spam into small pieces while water heats.",
+      "Add all ingredients to the boiling water.",
+      "Let simmer for 30 minutes until pasta is cooked and flavors meld.",
+      "Season with salt and pepper to taste.",
+      "Serve hot."
+    ],
+    prepTime: 10,
+    cookTime: 30,
+    servings: 6,
+    tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.EASY],
+    image: "/placeholder.svg",
+    requiredFoodIds: ["2", "8", "12", "13", "15", "7", "30", "31"]
+  },
+  {
+    id: "27",
+    title: "Khichuri with Beef and Eggplant",
+    description: "A popular Southeast Asian comfort dish combining rice and lentils with spiced beef curry and fried eggplant. Perfect for rainy days.",
+    ingredients: [
+      { name: "Rice", quantity: "2 cups" },
+      { name: "Lentils", quantity: "1 cup" },
+      { name: "Oil", quantity: "5 tbsp + 10 tbsp for beef" },
+      { name: "Onion", quantity: "3 pieces total" },
+      { name: "Chili powder", quantity: "5 tbsp total" },
+      { name: "Salt", quantity: "7 tbsp total" },
+      { name: "Turmeric powder", quantity: "2 tbsp total" },
+      { name: "Garlic paste", quantity: "4 tbsp total" },
+      { name: "Ginger paste", quantity: "4 tbsp total" },
+      { name: "Carrot", quantity: "1 medium" },
+      { name: "Potato", quantity: "1" },
+      { name: "Beef", quantity: "1 lb" },
+      { name: "Beef masala", quantity: "5 tbsp" },
+      { name: "Eggplant", quantity: "1" }
+    ],
+    instructions: [
+      "For Khichuri: Wash rice, lentils, onion, carrot, and potato. Chop onion finely and cut carrot and potato into medium pieces.",
+      "Mix rice, lentils, 1 chopped onion, 2 tbsp chili powder, 3 tbsp salt, 1 tbsp turmeric, 1 tbsp garlic paste, 1/2 tbsp ginger paste, carrot, and potato.",
+      "Cook in rice cooker for about 30 minutes.",
+      "For Beef: Wash beef and mix with 2 chopped onions, 3 tbsp chili powder, 3 tbsp salt, 1 tbsp turmeric, 3 tbsp garlic paste, 3 tbsp ginger paste, and beef masala.",
+      "Marinate in refrigerator for 10 minutes, then cook in frying pan on low heat for 40 minutes.",
+      "For Eggplant: Wash and slice eggplant into rounds. Mix with 1 tbsp salt and 1/2 tbsp turmeric.",
+      "Fry in oil for 5 minutes until golden.",
+      "Serve all three components together."
+    ],
+    prepTime: 20,
+    cookTime: 75,
+    servings: 6,
+    tags: [RecipeTag.DINNER, RecipeTag.HIGH_PROTEIN],
+    image: "/placeholder.svg",
+    requiredFoodIds: ["6", "11", "17", "18", "25", "26", "2"]
+  },
+  {
+    id: "28",
+    title: "Balanced Bite Nachos",
+    description: "A quick and balanced snack combining chips, cheese, chicken, and vegetables. Perfect for busy lifestyles and ready in just 20 minutes.",
+    ingredients: [
+      { name: "Canned chicken", quantity: "1 can" },
+      { name: "Mexican blend cheese", quantity: "1 bag" },
+      { name: "Tortilla chips", quantity: "1/2 bag" },
+      { name: "Red bell pepper", quantity: "1" },
+      { name: "Yellow bell pepper", quantity: "1" },
+      { name: "Lime", quantity: "1" },
+      { name: "Hot sauce", quantity: "to taste" }
+    ],
+    instructions: [
+      "Preheat oven to 250°F. Wash and dice bell peppers.",
+      "Drain and shred chicken. Cut lime into quarters.",
+      "On oven-safe tray with parchment paper, lay out chips.",
+      "Add cheese on top, then spread chicken evenly with no overlapping.",
+      "Insert tray into heated oven. Check every 5 minutes.",
+      "After 10 minutes, add bell peppers for light toasting.",
+      "Cook 5 more minutes (total cooking time should not exceed 20 minutes).",
+      "Remove from oven and let cool.",
+      "Add lime juice to taste and hot sauce as desired."
+    ],
+    prepTime: 5,
+    cookTime: 20,
+    servings: 4,
+    tags: [RecipeTag.SNACK, RecipeTag.QUICK, RecipeTag.EASY],
+    image: "/placeholder.svg",
+    requiredFoodIds: ["2", "22", "9", "19"]
+  },
+  {
+    id: "29",
+    title: "Nutty Curry Ramen",
+    description: "Elevated packaged ramen with a rich, nutty curry sauce. Perfect comfort food for chilly days that tastes like a restaurant meal.",
+    ingredients: [
+      { name: "Almond milk", quantity: "1/3 cup" },
+      { name: "Onion, chopped", quantity: "1/4 round" },
+      { name: "Garlic, minced", quantity: "to taste" },
+      { name: "Peanut butter", quantity: "2 tbsp" },
+      { name: "Soy sauce", quantity: "2 tbsp" },
+      { name: "Curry powder", quantity: "1 tbsp" },
+      { name: "Salt and pepper", quantity: "to taste" },
+      { name: "Lemon juice", quantity: "1 wedge worth" },
+      { name: "Ramen noodles", quantity: "1 pack" },
+      { name: "Carrots, chopped", quantity: "4 baby carrots" },
+      { name: "Fresh cilantro", quantity: "1 handful" },
+      { name: "Garlic chili oil", quantity: "to taste" },
+      { name: "Sesame seeds", quantity: "for garnish" },
+      { name: "Sesame oil", quantity: "dash" }
+    ],
+    instructions: [
+      "Boil ramen noodles in a pot according to package instructions.",
+      "In a saucepan, sauté onion and garlic until fragrant.",
+      "Add almond milk and bring to boil.",
+      "Add peanut butter and soy sauce, stir until smooth.",
+      "Add curry powder, salt, pepper, and lemon juice.",
+      "When noodles are done, add them to the curry sauce and mix.",
+      "Serve topped with chopped carrots, cilantro, sesame seeds, chili oil, and a dash of sesame oil."
+    ],
+    prepTime: 5,
+    cookTime: 10,
+    servings: 1,
+    tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.QUICK, RecipeTag.VEGETARIAN],
+    image: "/placeholder.svg",
+    requiredFoodIds: ["7", "17", "18", "4", "21"]
+  },
+  {
+    id: "30",
+    title: "Rotini Pasta",
+    description: "Simple Italian-style pasta from Northern Italy. The spiral shape holds sauce well, making it perfect for a quick and satisfying meal.",
+    ingredients: [
+      { name: "Pasta", quantity: "100g" },
+      { name: "Oil", quantity: "2 tbsp" },
+      { name: "Onion", quantity: "1/4 medium" },
+      { name: "Chili powder", quantity: "2 tbsp" },
+      { name: "Salt", quantity: "2 tbsp" },
+      { name: "Turmeric powder", quantity: "1/4 tbsp" },
+      { name: "Tomato sauce", quantity: "5 tbsp" }
+    ],
+    instructions: [
+      "Boil water and add a few drops of oil.",
+      "Add 100g pasta and cook until 80% soft, then drain.",
+      "In another frying pan, fry onion until translucent.",
+      "Add chili powder, salt, turmeric, and tomato sauce as required.",
+      "Stir for 1 minute, then add boiled pasta.",
+      "Mix properly and cook for 5 minutes until ready to eat."
+    ],
+    prepTime: 5,
+    cookTime: 15,
+    servings: 2,
+    tags: [RecipeTag.LUNCH, RecipeTag.DINNER, RecipeTag.QUICK, RecipeTag.EASY, RecipeTag.VEGETARIAN],
+    image: "/placeholder.svg",
+    requiredFoodIds: ["7", "17", "15", "26", "30"]
+  },
+  {
+    id: "31",
+    title: "Chicken Enchiladas (Revised)",
+    description: "Updated version of chicken enchiladas using cream soup base for the sauce instead of traditional enchilada sauce. Perfect for meal prep.",
+    ingredients: [
+      { name: "Black beans", quantity: "1 can (15 oz)" },
+      { name: "Chicken", quantity: "2 lbs" },
+      { name: "Cream of chicken or mushroom soup", quantity: "2 cans (11 oz)" },
+      { name: "Garlic", quantity: "10 cloves" },
+      { name: "Green chiles", quantity: "6 cans (4 oz)" },
+      { name: "Milk", quantity: "2 cups" },
+      { name: "Mexican four cheese blend", quantity: "1 bag (16 oz)" },
+      { name: "Onion", quantity: "1 large" },
+      { name: "Tortillas, burrito-sized", quantity: "10" },
+      { name: "Vegetable oil", quantity: "4 tbsp" },
+      { name: "Salt", quantity: "to taste" },
+      { name: "Black pepper", quantity: "to taste" },
+      { name: "Red chili powder", quantity: "to taste" }
+    ],
+    instructions: [
+      "Preheat oven to 350°F. Dice chicken into 1/2 inch pieces and season with 3 tbsp salt.",
+      "Mince onion and garlic.",
+      "Heat 3 tbsp oil in pot on high heat. Add onions, stir with 1/2 tbsp salt, reduce to medium-high.",
+      "Brown onions for 15 minutes. Add 1 tbsp oil, then garlic. Stir for 30 seconds.",
+      "Add drained black beans, 3 cans green chiles, and chicken. Cook until chicken is done.",
+      "Season with salt, pepper, and chili powder.",
+      "For sauce: Heat cream soup and milk in saucepan. Add 3 cans diced green chiles. Season with salt, pepper, and chili powder.",
+      "Spread 2 tbsp sauce on tortilla. Add 3/4 cup filling and 1/3 cup cheese. Roll and place in baking tray.",
+      "Top with remaining sauce and cheese. Bake 25 minutes until cheese melts and edges crisp."
+    ],
+    prepTime: 30,
+    cookTime: 60,
+    servings: 6,
+    tags: [RecipeTag.DINNER, RecipeTag.HIGH_PROTEIN],
+    image: "/placeholder.svg",
+    requiredFoodIds: ["12", "2", "17", "18", "22", "9", "21", "26"]
+  },
+  {
+    id: "32",
+    title: "Hot Milk Tea",
+    description: "A globally popular hot beverage similar to chai. Rich, flavorful, and affordable comfort drink perfect for any time of day.",
+    ingredients: [
+      { name: "Tea bags", quantity: "2" },
+      { name: "Evaporated milk", quantity: "30 ml" },
+      { name: "Sugar", quantity: "2 tbsp" },
+      { name: "Ginger", quantity: "1 small slice" },
+      { name: "Hot water", quantity: "2/3 cup" }
+    ],
+    instructions: [
+      "In a cup, add evaporated milk and sugar. Mix properly.",
+      "Add tea bags and ginger slice to the cup.",
+      "Pour 2/3 cup hot water into the cup and mix properly.",
+      "Microwave for 1 minute.",
+      "Remove from microwave, stir well, and discard tea bags.",
+      "Serve hot. The ginger will give extra flavor."
+    ],
+    prepTime: 2,
+    cookTime: 3,
+    servings: 1,
+    tags: [RecipeTag.BREAKFAST, RecipeTag.QUICK, RecipeTag.VEGETARIAN],
+    image: "/placeholder.svg",
+    requiredFoodIds: ["21", "25", "18"]
   }
 ];
 
