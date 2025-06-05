@@ -54,7 +54,7 @@ const Basket: React.FC = () => {
                 variant="outline" 
                 size="sm"
                 onClick={handleClearBasket}
-                className="text-red-500 border-red-500 hover:bg-red-50"
+                className="border-food-red bg-food-red text-white hover:bg-food-red/90 hover:text-white"
               >
                 Clear All
               </Button>

@@ -102,7 +102,7 @@ const Index: React.FC = () => {
                       <Button
                         onClick={() => handleRemoveFromBasket(item.id, item.name)}
                         variant="outline"
-                        className="w-full border-food-red text-food-red hover:bg-food-red/10"
+                        className="w-full border-food-red bg-food-red text-white hover:bg-food-red/90 hover:text-white"
                         size="sm"
                       >
                         <X className="h-4 w-4" /> Remove
